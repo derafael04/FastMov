@@ -78,61 +78,6 @@ class _ScreenIntroductionState extends State<ScreenIntroduction> {
           image: Image.asset('assets/images/logo.png', width: 180),
           decoration: pageDecoration,
         ),
-        PageViewModel(
-          title: "Full Screen Page",
-          body:
-              "Pages can be full screen as well.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id euismod lectus, non tempor felis. Nam rutrum rhoncus est ac venenatis.",
-          decoration: pageDecoration.copyWith(
-            contentMargin: const EdgeInsets.symmetric(horizontal: 16),
-            bodyFlex: 2,
-            imageFlex: 3,
-            safeArea: 100,
-          ),
-        ),
-        PageViewModel(
-          title: "Another title page",
-          body: "Another beautiful body text for this example onboarding",
-          image: Image.asset('assets/images/logo.png', width: 180),
-          footer: ElevatedButton(
-            onPressed: () {
-              introKey.currentState?.animateScroll(0);
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.lightBlue,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-            ),
-            child: const Text(
-              'FooButton',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-          decoration: pageDecoration.copyWith(
-            bodyFlex: 6,
-            imageFlex: 6,
-            safeArea: 80,
-          ),
-        ),
-        PageViewModel(
-          title: "Title of last page - reversed",
-          bodyWidget: const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Click on ", style: bodyStyle),
-              Icon(Icons.edit),
-              Text(" to edit a post", style: bodyStyle),
-            ],
-          ),
-          decoration: pageDecoration.copyWith(
-            bodyFlex: 2,
-            imageFlex: 4,
-            bodyAlignment: Alignment.bottomCenter,
-            imageAlignment: Alignment.topCenter,
-          ),
-          image: Image.asset('assets/images/logo.png', width: 180),
-          reverse: true,
-        ),
       ],
       onDone: () => _onIntroEnd(context),
       onSkip: () => _onIntroEnd(context), // You can override onSkip callback
