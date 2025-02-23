@@ -6,9 +6,10 @@
     "configurations": [
     
         {
-            "name": "fastmov",
+            "name": "fastmov (debug mode)",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "flutterMode": "debug"
         },
         {
             "name": "fastmov (profile mode)",
