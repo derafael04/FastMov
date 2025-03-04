@@ -1,5 +1,6 @@
 import 'package:fastmov/screen/home/screen_home.dart';
 import 'package:fastmov/screen/home/screen_introduction.dart';
+import 'package:fastmov/screen/login/tela_login_inicial.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         //'/splash': (context) => const SplashScreen(),
         '/home': (context) => const Home(),
         '/screenIntroduction': (context) => const ScreenIntroduction(),
+        '/telaLoginInicial': (context) => const TelaLoginInicial(),
       },
     );
   }
