@@ -27,7 +27,6 @@ class _ScreenIntroductionState extends State<ScreenIntroduction> {
       titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
       bodyTextStyle: bodyStyle,
       bodyPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-      pageColor: Colors.white,
       imagePadding: EdgeInsets.zero,
     );
     return IntroductionScreen(
@@ -43,17 +42,6 @@ class _ScreenIntroductionState extends State<ScreenIntroduction> {
             padding: const EdgeInsets.only(top: 16, right: 16),
             child: Image.asset('assets/images/logo.png', width: 180)
           ),
-        ),
-      ),
-      globalFooter: SizedBox(
-        width: double.infinity,
-        height: 60,
-        child: ElevatedButton(
-          child: const Text(
-            'Let\'s go right away!',
-            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-          ),
-          onPressed: () => _onIntroEnd(context),
         ),
       ),
       pages: [
