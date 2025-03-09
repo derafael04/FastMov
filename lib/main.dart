@@ -21,14 +21,14 @@ class MyApp extends StatelessWidget {
         cardColor: Colors.white,
         canvasColor: const Color(0xffF3F3F4),
         bottomSheetTheme: const BottomSheetThemeData(backgroundColor: Colors.transparent),
-        shadowColor: const Color(0xff90949A).withOpacity(0.25),
+        shadowColor: const Color(0xff90949A),
         dialogTheme: DialogTheme(
             shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         )),
         dividerColor: const Color(0xffCFCFCF),
         dividerTheme: const DividerThemeData(color: Color(0xffDCDDDF), thickness: 1),
-        dialogBackgroundColor: Colors.grey[200],
+        //dialogBackgroundColor: Colors.grey[200],
         splashColor: Colors.white,
         iconTheme: const IconThemeData(
           color: Color(0xff51555A),
