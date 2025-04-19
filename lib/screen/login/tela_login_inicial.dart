@@ -68,7 +68,9 @@ class _TelaLoginInicialState extends State<TelaLoginInicial> {
             const SizedBox(height: 20),
             Center(
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed('/telaCadastroLogin');
+                },
                 child: const Text(
                   'Crie um conta Sign Up',
                   style: TextStyle(

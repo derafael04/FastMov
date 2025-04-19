@@ -1,5 +1,6 @@
 import 'package:fastmov/screen/home/screen_home.dart';
 import 'package:fastmov/screen/home/screen_introduction.dart';
+import 'package:fastmov/screen/login/cadastro/tela_cadastro_login.dart';
 import 'package:fastmov/screen/login/tela_esqueceu_senha.dart';
 import 'package:fastmov/screen/login/tela_login_inicial.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,8 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const Home(),
         '/screenIntroduction': (context) => const ScreenIntroduction(),
         '/telaLoginInicial': (context) => const TelaLoginInicial(),
-        '/telaEsqueceuSenha': (context) => const TelaEsqueceuSenha()
+        '/telaEsqueceuSenha': (context) => const TelaEsqueceuSenha(),
+        '/telaCadastroLogin': (context) => const TelaCadastroLogin(),
       },
     );
   }
