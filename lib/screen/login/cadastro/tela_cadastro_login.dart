@@ -1,3 +1,6 @@
+import 'package:fastmov/screen/login/cadastro/tela_cadastro_endereco.dart';
+import 'package:fastmov/screen/login/cadastro/tela_cadastro_senha.dart';
+import 'package:fastmov/screen/login/cadastro/tela_cadastro_telefone.dart';
 import 'package:fastmov/widget/custom_appBar_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -24,25 +27,36 @@ class _TelaCadastroLoginState extends State<TelaCadastroLogin> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CadastroAppBarComControle(
-      title: 'Cadastro',
-      controller: _pageController,
-      totalSteps: 3,
-      onBack: () {
-        if (_pageController.page == 0) {
-          Navigator.pop(context);
-        } else {
-          _pageController.previousPage(
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeInOut,
-          );
-        }
-      },
-      onInfoTap: () {
-        // Exibir modal de ajuda, por exemplo
-      },
-    ),
+    return SafeArea(
+      child: Scaffold(
+        appBar: CadastroAppBarComControle(
+        title: 'Cadastro',
+        controller: _pageController,
+        totalSteps: 3,
+        onBack: () {
+          if (_pageController.page == 0) {
+            Navigator.pop(context);
+          } else {
+            _pageController.previousPage(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+            );
+          }
+        },
+        onInfoTap: () {},
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: PageView(
+          controller: _pageController,
+          children: const [
+            TelaCadastroSenha(),
+            TelaCadastroEndereco(),
+            TelaCadastroTelefone()
+          ],
+        ),
+      ),
+      ),
     );
   }
 }
