@@ -1,3 +1,4 @@
+import 'package:fastmov/widget/custom_button.dart';
 import 'package:fastmov/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -50,19 +51,10 @@ class _TelaEsqueceuSenhaState extends State<TelaEsqueceuSenha> {
               ),
             ),
             const SizedBox(height: 24),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).primaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                padding: const EdgeInsets.symmetric(vertical: 15),
-              ),
+            CustomButton(
+              label: 'Enviar',
+              type: ButtonType.primary,
               onPressed: () {},
-              child: const Text(
-                'Enviar',
-                style: TextStyle(fontSize: 16, color: Colors.white),
-              ),
             ),
           ],
         ),

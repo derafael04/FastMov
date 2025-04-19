@@ -1,3 +1,4 @@
+import 'package:fastmov/widget/custom_button.dart';
 import 'package:fastmov/widget/custom_text_field.dart';
 import 'package:fastmov/widget/social_button.dart';
 import 'package:flutter/material.dart';
@@ -46,19 +47,10 @@ class _TelaLoginInicialState extends State<TelaLoginInicial> {
               ),
             ),
             const SizedBox(height: 10),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).primaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                padding: const EdgeInsets.symmetric(vertical: 15),
-              ),
+            CustomButton(
+              label: 'Entrar',
+              type: ButtonType.primary,
               onPressed: () {},
-              child: const Text(
-                'Entrar',
-                style: TextStyle(fontSize: 16, color: Colors.white),
-              ),
             ),
             const SizedBox(height: 20),
             const Center(child: Text('- Ou Continue com -')),
