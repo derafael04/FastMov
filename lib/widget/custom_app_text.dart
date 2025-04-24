@@ -19,6 +19,7 @@ class AppText extends StatelessWidget {
   final Color? color;
   final int? maxLines;
   final TextOverflow? overflow;
+  final bool? isNotHeavy;
 
   const AppText({
     super.key,
@@ -28,6 +29,7 @@ class AppText extends StatelessWidget {
     this.color,
     this.maxLines,
     this.overflow,
+    this.isNotHeavy,
   });
 
   TextStyle _getTextStyle(BuildContext context) {
@@ -37,49 +39,49 @@ class AppText extends StatelessWidget {
       case AppTextStyleType.display:
         return GoogleFonts.outfit(
           fontSize: 40,
-          fontWeight: FontWeight.w700,
+          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w700,
           color: color ?? defaultColor,
         );
       case AppTextStyleType.largeTitle:
         return GoogleFonts.outfit(
           fontSize: 32,
-          fontWeight: FontWeight.w600,
+          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w600,
           color: color ?? defaultColor,
         );
       case AppTextStyleType.title:
         return GoogleFonts.outfit(
           fontSize: 24,
-          fontWeight: FontWeight.w600,
+          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w600,
           color: color ?? defaultColor,
         );
       case AppTextStyleType.subtitle:
         return GoogleFonts.outfit(
           fontSize: 20,
-          fontWeight: FontWeight.w600,
+          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w600,
           color: color ?? defaultColor,
         );
       case AppTextStyleType.bodyLarge:
         return GoogleFonts.outfit(
           fontSize: 18,
-          fontWeight: FontWeight.w400,
+          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w400,
           color: color ?? defaultColor,
         );
       case AppTextStyleType.bodyStrong:
         return GoogleFonts.outfit(
           fontSize: 16,
-          fontWeight: FontWeight.w600,
+          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w600,
           color: color ?? defaultColor,
         );
       case AppTextStyleType.body:
         return GoogleFonts.outfit(
           fontSize: 16,
-          fontWeight: FontWeight.w400,
+          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w400,
           color: color ?? defaultColor,
         );
       case AppTextStyleType.caption:
         return GoogleFonts.outfit(
           fontSize: 14,
-          fontWeight: FontWeight.w400,
+          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w400,
           color: color ?? defaultColor,
         );
     }

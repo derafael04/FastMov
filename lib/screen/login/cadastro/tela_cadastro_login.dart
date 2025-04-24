@@ -27,36 +27,36 @@ class _TelaCadastroLoginState extends State<TelaCadastroLogin> {
   }
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: CadastroAppBarComControle(
-        title: 'Cadastro',
+    return Scaffold(
+      appBar: CadastroAppBarComControle(
+      title: 'Cadastro',
+      controller: _pageController,
+      totalSteps: 3,
+      onBack: () {
+        if (_pageController.page == 0) {
+          Navigator.pop(context);
+        } else {
+          _pageController.previousPage(
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
+        }
+      },
+      onInfoTap: () {
+        Navigator.pushNamed(context, '/telaAjuda');
+      },
+    ),
+    body: Padding(
+      padding: const EdgeInsets.all(16),
+      child: PageView(
         controller: _pageController,
-        totalSteps: 3,
-        onBack: () {
-          if (_pageController.page == 0) {
-            Navigator.pop(context);
-          } else {
-            _pageController.previousPage(
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.easeInOut,
-            );
-          }
-        },
-        onInfoTap: () {},
+        children: const [
+          TelaCadastroSenha(),
+          TelaCadastroEndereco(),
+          TelaCadastroTelefone()
+        ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: PageView(
-          controller: _pageController,
-          children: const [
-            TelaCadastroSenha(),
-            TelaCadastroEndereco(),
-            TelaCadastroTelefone()
-          ],
-        ),
-      ),
-      ),
+    ),
     );
   }
 }

@@ -1,5 +1,5 @@
+import 'package:fastmov/widget/custom_app_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CadastroAppBarComControle extends StatefulWidget implements PreferredSizeWidget {
   final String title;
@@ -21,7 +21,7 @@ class CadastroAppBarComControle extends StatefulWidget implements PreferredSizeW
   State<CadastroAppBarComControle> createState() => _CadastroAppBarComControleState();
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 5);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 8);
 }
 
 class _CadastroAppBarComControleState extends State<CadastroAppBarComControle> {
@@ -53,8 +53,8 @@ class _CadastroAppBarComControleState extends State<CadastroAppBarComControle> {
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final primaryColor = isDark ? Colors.white : const Color(0xFF000222);
-    final backgroundColor = isDark ? Colors.black : Colors.white;
-    final progressBackground = isDark ? Colors.white12 : const Color(0xFFEFEFFC);
+    final backgroundColor = isDark ? Colors.black : const Color(0xffF1F1F1);
+    final progressBackground = isDark ? Colors.white12 : const Color(0xFFE9E8EE);
 
     return SafeArea(
       child: Container(
@@ -77,13 +77,10 @@ class _CadastroAppBarComControleState extends State<CadastroAppBarComControle> {
                         color: primaryColor,
                       ),
                     ),
-                  Text(
-                    widget.title,
-                    style: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      color: primaryColor,
-                    ),
+                  AppText(
+                    text: widget.title,
+                    style: AppTextStyleType.bodyLarge,
+                    color: primaryColor,
                   ),
                   if (widget.onInfoTap != null)
                     Align(
@@ -102,6 +99,67 @@ class _CadastroAppBarComControleState extends State<CadastroAppBarComControle> {
               minHeight: 5,
               valueColor: AlwaysStoppedAnimation<Color>(primaryColor),
               backgroundColor: progressBackground,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
+  final String title;
+  final Widget? leading;
+  const CustomAppBar({
+    required this.title,
+    super.key, this.leading
+  });
+
+  @override
+  State<CustomAppBar> createState() => _CustomAppBarState();
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 8);
+}
+
+class _CustomAppBarState extends State<CustomAppBar> {
+  @override
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final primaryColor = isDark ? Colors.white : const Color(0xFF000222);
+    final backgroundColor = isDark ? Colors.black : const Color(0xffF1F1F1);
+    return SafeArea(
+      child: Container(
+        color: backgroundColor,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              height: kToolbarHeight,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: IconButton(
+                      icon: const Icon(Icons.arrow_back_rounded),
+                      onPressed: () => Navigator.pop(context),
+                      color: primaryColor,
+                    ),
+                  ),
+                  AppText(
+                    text: widget.title,
+                    style: AppTextStyleType.bodyLarge,
+                    color: primaryColor,
+                  ),
+                  if (widget.leading != null)
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: widget.leading,
+                    ),
+                ],
+              ),
             ),
           ],
         ),

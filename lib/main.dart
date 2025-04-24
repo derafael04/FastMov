@@ -1,5 +1,6 @@
 import 'package:fastmov/screen/home/screen_home.dart';
 import 'package:fastmov/screen/home/screen_introduction.dart';
+import 'package:fastmov/screen/information/tela_ajuda.dart';
 import 'package:fastmov/screen/login/cadastro/tela_cadastro_login.dart';
 import 'package:fastmov/screen/login/tela_esqueceu_senha.dart';
 import 'package:fastmov/screen/login/tela_login_inicial.dart';
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
         '/telaLoginInicial': (context) => const TelaLoginInicial(),
         '/telaEsqueceuSenha': (context) => const TelaEsqueceuSenha(),
         '/telaCadastroLogin': (context) => const TelaCadastroLogin(),
+        '/telaAjuda': (context) => const TelaAjuda(),
       },
     );
   }
