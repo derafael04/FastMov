@@ -11,6 +11,8 @@ class TelaLoginInicial extends StatefulWidget {
 }
 
 class _TelaLoginInicialState extends State<TelaLoginInicial> {
+  bool obscureText = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +34,19 @@ class _TelaLoginInicialState extends State<TelaLoginInicial> {
           const SizedBox(height: 20),
           const CustomTextField(hintText: 'Email'),
           const SizedBox(height: 10),
-          const CustomTextField(hintText: 'Senha', obscureText: true),
+          CustomTextField(hintText: 'Senha', obscureText: obscureText,
+            suffixIcon: IconButton(
+              icon: Icon(
+                obscureText ? Icons.visibility : Icons.visibility_off,
+                color: Colors.grey,
+              ),
+              onPressed: () {
+                setState(() {
+                  obscureText = !obscureText;
+                });
+              },
+            ),
+          ),
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
@@ -70,13 +84,28 @@ class _TelaLoginInicialState extends State<TelaLoginInicial> {
               onTap: () {
                 Navigator.of(context).pushNamed('/telaCadastroLogin');
               },
-              child: const Text(
-                'Crie um conta Sign Up',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Crie um conta',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(width: 4),
+                  Text(
+                    'Sign Up',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

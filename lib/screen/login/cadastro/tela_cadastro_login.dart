@@ -50,10 +50,11 @@ class _TelaCadastroLoginState extends State<TelaCadastroLogin> {
       padding: const EdgeInsets.all(16),
       child: PageView(
         controller: _pageController,
-        children: const [
-          TelaCadastroSenha(),
-          TelaCadastroEndereco(),
-          TelaCadastroTelefone()
+        physics: const NeverScrollableScrollPhysics(),
+        children: [
+          TelaCadastroSenha(pageController: _pageController),
+          TelaCadastroEndereco(pageController: _pageController,),
+          TelaCadastroTelefone(pageController: _pageController)
         ],
       ),
     ),

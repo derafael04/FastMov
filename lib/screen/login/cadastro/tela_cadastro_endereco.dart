@@ -4,7 +4,8 @@ import 'package:fastmov/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class TelaCadastroEndereco extends StatefulWidget {
-  const TelaCadastroEndereco({super.key});
+  final PageController pageController;
+  const TelaCadastroEndereco({super.key, required this.pageController});
 
   @override
   State<TelaCadastroEndereco> createState() => _TelaCadastroEnderecoState();
@@ -65,15 +66,20 @@ class _TelaCadastroEnderecoState extends State<TelaCadastroEndereco> {
                 ],
               ),
               SizedBox(height: 16),
-          
               // Campo Referência
               CustomTextField(hintText: 'Referência'),
             ],
           ),
+          const SizedBox(height: 24),
           CustomButton(
             label: 'Próximo',
             type: ButtonType.primary,
-            onPressed: () {},
+            onPressed: () {
+              widget.pageController.nextPage(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+              );
+            },
           ),
         ],
       ),
