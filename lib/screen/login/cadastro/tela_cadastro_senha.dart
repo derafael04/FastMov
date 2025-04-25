@@ -12,29 +12,56 @@ class TelaCadastroSenha extends StatefulWidget {
 }
 
 class _TelaCadastroSenhaState extends State<TelaCadastroSenha> {
+  bool obscureText = true;
+  bool obscureTextConfirm = true;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AppText(
+            const AppText(
               text: 'Email e Senha',
               style: AppTextStyleType.title,
             ),
-            SizedBox(height: 24),
-            AppText(
+            const SizedBox(height: 24),
+            const AppText(
               text: 'Digite seu e-mail para se cadastrar e sua senha',
               style: AppTextStyleType.bodyLarge,
             ),
-            SizedBox(height: 24),
-            CustomTextField(hintText: 'Email'),
-            SizedBox(height: 10),
-            CustomTextField(hintText: 'Senha', obscureText: true),
-            SizedBox(height: 10),
-            CustomTextField(hintText: 'Confirmar senha', obscureText: true),
+            const SizedBox(height: 24),
+            const CustomTextField(hintText: 'Email'),
+            const SizedBox(height: 10),
+            CustomTextField(hintText: 'Senha', obscureText: obscureText, 
+              suffixIcon: IconButton(
+                icon: Icon(
+                  obscureText ? Icons.visibility : Icons.visibility_off,
+                  color: Colors.grey,
+                ),
+                onPressed: () {
+                  setState(() {
+                    obscureText = !obscureText;
+                  });
+                },
+              ),
+            ),
+            const SizedBox(height: 10),
+            CustomTextField(hintText: 'Confirmar senha', obscureText: obscureTextConfirm,
+              suffixIcon: IconButton(
+                icon: Icon(
+                  obscureTextConfirm ? Icons.visibility : Icons.visibility_off,
+                  color: Colors.grey,
+                ),
+                onPressed: () {
+                  setState(() {
+                    obscureTextConfirm = !obscureTextConfirm;
+                  });
+                },
+              ),
+            ),
           ],
         ),
         CustomButton(
