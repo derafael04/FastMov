@@ -4,7 +4,8 @@ import 'package:fastmov/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class TelaCadastroTelefone extends StatefulWidget {
-  const TelaCadastroTelefone({super.key});
+  final PageController pageController;
+  const TelaCadastroTelefone({super.key, required this.pageController});
 
   @override
   State<TelaCadastroTelefone> createState() => _TelaCadastroTelefoneState();

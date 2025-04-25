@@ -4,7 +4,8 @@ import 'package:fastmov/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class TelaCadastroSenha extends StatefulWidget {
-  const TelaCadastroSenha({super.key});
+  final PageController pageController;
+  const TelaCadastroSenha({super.key, required this.pageController});
 
   @override
   State<TelaCadastroSenha> createState() => _TelaCadastroSenhaState();
@@ -39,7 +40,12 @@ class _TelaCadastroSenhaState extends State<TelaCadastroSenha> {
         CustomButton(
           label: 'Próximo',
           type: ButtonType.primary,
-          onPressed: () {},
+          onPressed: () {
+            widget.pageController.nextPage(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+            );
+          },
         ),
       ],
     );

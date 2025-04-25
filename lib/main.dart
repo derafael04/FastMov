@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         primaryColor: const Color(0xff161934),
       ),
-      initialRoute: '/screenIntroduction',
+      initialRoute: '/telaLoginInicial',
       routes: {
         //'/splash': (context) => const SplashScreen(),
         '/home': (context) => const Home(),
