@@ -36,7 +36,9 @@ class _TelaCadastroTelefoneState extends State<TelaCadastroTelefone> {
         CustomButton(
           label: 'Próximo',
           type: ButtonType.primary,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed('/telaValidarCadastro');
+          },
         ),
       ],
     );
