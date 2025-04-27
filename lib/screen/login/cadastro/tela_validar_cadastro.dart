@@ -34,7 +34,9 @@ class _TelaValidarCadastroState extends State<TelaValidarCadastro> {
             child: CustomButton(
               label: 'Finalizar',
               type: ButtonType.primary,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/telaInicial');
+              },
             ),
           ),
         ],
