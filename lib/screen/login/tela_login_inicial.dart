@@ -63,7 +63,9 @@ class _TelaLoginInicialState extends State<TelaLoginInicial> {
           CustomButton(
             label: 'Entrar',
             type: ButtonType.primary,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/telaInicial');
+            },
           ),
           const SizedBox(height: 20),
           const Center(child: Text('- Ou Continue com -')),

@@ -110,9 +110,10 @@ class _CadastroAppBarComControleState extends State<CadastroAppBarComControle> {
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
   final Widget? leading;
+  final List<Widget>? actions;
   const CustomAppBar({
     required this.title,
-    super.key, this.leading
+    super.key, this.leading, this.actions
   });
 
   @override
@@ -140,6 +141,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
+                  widget.leading ??
                   Align(
                     alignment: Alignment.centerLeft,
                     child: IconButton(
@@ -153,10 +155,12 @@ class _CustomAppBarState extends State<CustomAppBar> {
                     style: AppTextStyleType.bodyLarge,
                     color: primaryColor,
                   ),
-                  if (widget.leading != null)
+                  if (widget.actions != null)
                     Align(
                       alignment: Alignment.centerRight,
-                      child: widget.leading,
+                      child: Row(
+                        children: widget.actions!,
+                      ),
                     ),
                 ],
               ),
