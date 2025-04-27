@@ -1,3 +1,4 @@
+import 'package:fastmov/screen/home/widgetHome/item_card_ofertas.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:heroicons/heroicons.dart';
@@ -35,7 +36,15 @@ class _TelaInicialState extends State<TelaInicial> {
             radius: 18,
           ),
         ),
-      )
+      ),
+      body: const Padding(
+        padding: EdgeInsets.fromLTRB(0, 24, 0, 24),
+        child: Column(
+          children: [
+            ItemCardOfertas()
+          ],
+        ),
+      ),
     );
   }
 }

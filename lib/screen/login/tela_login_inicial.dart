@@ -64,7 +64,7 @@ class _TelaLoginInicialState extends State<TelaLoginInicial> {
             label: 'Entrar',
             type: ButtonType.primary,
             onPressed: () {
-              Navigator.pushNamed(context, '/telaInicial');
+              Navigator.pushNamed(context, '/home');
             },
           ),
           const SizedBox(height: 20),
