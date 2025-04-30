@@ -110,7 +110,7 @@ class _HomeState extends State<Home> {
         ],
         leading: Padding(
           padding: const EdgeInsets.only(left: 16),
-          child: GestureDetector.new(
+          child: GestureDetector(
             onTap: () => _scaffoldKey.currentState?.openDrawer(),
             child: const CircleAvatar(
               backgroundImage: AssetImage('assets/images/user.png'),
