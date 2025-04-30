@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
         '/telaEsqueceuSenha': (context) => const TelaEsqueceuSenha(),
         '/telaCadastroLogin': (context) => const TelaCadastroLogin(),
         '/telaAjuda': (context) => const TelaAjuda(),
-        '/telaValidarCadastro': (context) => const TelaValidarCadastro(),
+        '/telaValidarCadastro': (context) => const TelaValidarCadastro()
       },
     );
   }

@@ -2,7 +2,9 @@ import 'package:fastmov/screen/favoritos/tela_favoritos.dart';
 import 'package:fastmov/screen/gameficacao/tela_gameficacao.dart';
 import 'package:fastmov/screen/historico/tela_historico_sessao.dart';
 import 'package:fastmov/screen/home/tela_inicial.dart';
+import 'package:fastmov/screen/home/widgetHome/custom_drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:heroicons/heroicons.dart';
 
 class Home extends StatefulWidget {
@@ -14,6 +16,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final PageController _pageController = PageController(initialPage: 0);
 
   final List<Widget> _pages = const [
     TelaInicial(),
@@ -21,12 +25,6 @@ class _HomeState extends State<Home> {
     TelaHistoricoSessao(),
     TelaGameficacao(),
   ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   HeroIcons _getIcon(int index) {
     switch (index) {
@@ -61,10 +59,39 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: const Color(0xFFF1F1F1),
-      body: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 200),
-        child: _pages[_selectedIndex],
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title: Text('FastMov',
+          style: GoogleFonts.outfit(
+            fontSize: 32,
+            fontWeight: FontWeight.normal,
+            color: const Color(0xFF6868AC)
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: const HeroIcon(HeroIcons.bell),
+            onPressed: () {},
+          ),
+        ],
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 16),
+          child: GestureDetector.new(
+            onTap: () => _scaffoldKey.currentState?.openDrawer(),
+            child: const CircleAvatar(
+              backgroundImage: AssetImage('assets/images/user.png'),
+              radius: 18,
+            ),
+          ),
+        ),
+      ),
+      drawer: const CustomDrawer(),
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (index) => setState(() => _selectedIndex = index),
+        children: _pages,
       ),
       bottomNavigationBar: Container(
         margin: const EdgeInsets.all(16),
@@ -85,7 +112,9 @@ class _HomeState extends State<Home> {
           children: List.generate(4, (index) {
             final isSelected = _selectedIndex == index;
             return GestureDetector(
-              onTap: () => _onItemTapped(index),
+              onTap: () {
+                _pageController.jumpToPage(index);
+              },
               behavior: HitTestBehavior.opaque,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -98,11 +127,8 @@ class _HomeState extends State<Home> {
                     child: HeroIcon(
                       _getIcon(index),
                       key: ValueKey('icon_$index$isSelected'),
-                      color: isSelected ? const Color(0xFF1C1C43) : Colors.grey,
+                      color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
                       size: 24,
-                      style: isSelected
-                          ? HeroIconStyle.solid
-                          : HeroIconStyle.outline,
                     ),
                   ),
                   const SizedBox(height: 2),
