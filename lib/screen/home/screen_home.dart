@@ -3,6 +3,7 @@ import 'package:fastmov/screen/gameficacao/tela_gameficacao.dart';
 import 'package:fastmov/screen/historico/tela_historico_sessao.dart';
 import 'package:fastmov/screen/home/tela_inicial.dart';
 import 'package:fastmov/screen/home/widgetHome/custom_drawer.dart';
+import 'package:fastmov/widget/custom_app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:heroicons/heroicons.dart';
@@ -56,6 +57,42 @@ class _HomeState extends State<Home> {
     }
   }
 
+  Widget _getTitle(int index) {
+    switch (index) {
+      case 0:
+        return Text('FastMov',
+          style: GoogleFonts.outfit(
+            fontSize: 32,
+            fontWeight: FontWeight.normal,
+            color: const Color(0xFF6868AC)
+          ),
+        );
+      case 1:
+        return const AppText(
+          text: 'Favoritos',
+          style: AppTextStyleType.bodyLarge
+        );
+      case 2:
+        return const AppText(
+          text: 'Histórico',
+          style: AppTextStyleType.bodyLarge
+        );
+      case 3:
+        return const AppText(
+          text: 'Ranking',
+          style: AppTextStyleType.bodyLarge
+        );
+      default:
+        return Text('FastMov',
+          style: GoogleFonts.outfit(
+            fontSize: 32,
+            fontWeight: FontWeight.normal,
+            color: const Color(0xFF6868AC)
+          ),
+        );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,13 +100,8 @@ class _HomeState extends State<Home> {
       backgroundColor: const Color(0xFFF1F1F1),
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        title: Text('FastMov',
-          style: GoogleFonts.outfit(
-            fontSize: 32,
-            fontWeight: FontWeight.normal,
-            color: const Color(0xFF6868AC)
-          ),
-        ),
+        title: _getTitle(_selectedIndex),
+        centerTitle: true,
         actions: [
           IconButton(
             icon: const HeroIcon(HeroIcons.bell),
@@ -120,7 +152,7 @@ class _HomeState extends State<Home> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 200),
                     transitionBuilder: (child, animation) {
                       return ScaleTransition(scale: animation, child: child);
                     },
@@ -133,7 +165,7 @@ class _HomeState extends State<Home> {
                   ),
                   const SizedBox(height: 2),
                   AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 200),
                     transitionBuilder: (child, animation) {
                       return FadeTransition(opacity: animation, child: child);
                     },
