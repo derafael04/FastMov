@@ -1,5 +1,6 @@
 import 'package:fastmov/widget/custom_app_text.dart';
 import 'package:fastmov/widget/custom_card.dart';
+import 'package:fastmov/widget/custom_text_field.dart';
 import 'package:fastmov/widget/data_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:heroicons/heroicons.dart';
@@ -23,6 +24,15 @@ class _TelaHistoricoSessaoState extends State<TelaHistoricoSessao> {
           primary: true,
           child: Column(
             children: [
+              CustomTextField(
+                hintText: 'Pesquisar',
+                prefixIcon: const HeroIcon(
+                  HeroIcons.magnifyingGlass,
+                  color: Color(0xFF9E9E9E),
+                ),
+                onChanged: (valor) {},
+              ),
+              const SizedBox(height: 24),
               ListView.separated(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -67,6 +77,7 @@ class _TelaHistoricoSessaoState extends State<TelaHistoricoSessao> {
                   ),
                   const SizedBox(width: 8),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       AppText(text: nome, style: AppTextStyleType.bodyLarge),
                       AppText(text: especiallizacao, style: AppTextStyleType.body, isNotHeavy: true),
@@ -102,14 +113,14 @@ class _TelaHistoricoSessaoState extends State<TelaHistoricoSessao> {
             children: [
               Row(
                 children: [
-                  const HeroIcon(HeroIcons.calendar, size: 12, color: Color(0xFF9E9E9E),),
+                  const HeroIcon(HeroIcons.calendar, size: 20, color: Color(0xFF9E9E9E),),
                   const SizedBox(width: 4),
                   AppText(text: data, style: AppTextStyleType.body, isNotHeavy: true)
                 ],
               ),
               Row(
                 children: [
-                  const HeroIcon(HeroIcons.clock, size: 12, color: Color(0xFF9E9E9E),),
+                  const HeroIcon(HeroIcons.clock, size: 20, color: Color(0xFF9E9E9E),),
                   const SizedBox(width: 4),
                   AppText(text: hora, style: AppTextStyleType.body, isNotHeavy: true)
                 ],
