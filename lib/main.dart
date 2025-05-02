@@ -1,3 +1,4 @@
+import 'package:fastmov/screen/historico/tela_detalhes_sessao.dart';
 import 'package:fastmov/screen/home/screen_home.dart';
 import 'package:fastmov/screen/home/screen_introduction.dart';
 import 'package:fastmov/screen/home/tela_inicial.dart';
@@ -54,7 +55,8 @@ class MyApp extends StatelessWidget {
         '/telaEsqueceuSenha': (context) => const TelaEsqueceuSenha(),
         '/telaCadastroLogin': (context) => const TelaCadastroLogin(),
         '/telaAjuda': (context) => const TelaAjuda(),
-        '/telaValidarCadastro': (context) => const TelaValidarCadastro()
+        '/telaValidarCadastro': (context) => const TelaValidarCadastro(),
+        '/telaDetalhesSessao': (context) => const TelaDetalhesSessao(),
       },
     );
   }

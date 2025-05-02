@@ -39,12 +39,17 @@ class _TelaHistoricoSessaoState extends State<TelaHistoricoSessao> {
                 itemCount: 3,
                 separatorBuilder: (context, index) => const SizedBox(height: 16),
                 itemBuilder: (context, index) {
-                  return historicoSessao(
-                    'Dr. João Silva',
-                    'Fisioterapeuta',
-                    DataFormatter.formatDiaSemanaDiaMesAbreviado(DateTime.now()),
-                    '14:00 - 15:00',
-                    StatusAtendimento.finalizado,
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/telaDetalhesSessao');
+                    },
+                    child: historicoSessao(
+                      'Dr. João Silva',
+                      'Fisioterapeuta',
+                      DataFormatter.formatDiaSemanaDiaMesAbreviado(DateTime.now()),
+                      '14:00 - 15:00',
+                      StatusAtendimento.finalizado,
+                    ),
                   );
                 },
               ),
