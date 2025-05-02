@@ -74,11 +74,7 @@ class _TelaHistoricoSessaoState extends State<TelaHistoricoSessao> {
                 children: [
                   const CircleAvatar(
                     radius: 18,
-                    backgroundColor: Colors.purple,
-                    child: HeroIcon(
-                      HeroIcons.user,
-                      color: Colors.white,
-                    ),
+                    backgroundImage: AssetImage('assets/images/userProfissional.png'),
                   ),
                   const SizedBox(width: 8),
                   Column(

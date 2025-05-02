@@ -182,11 +182,7 @@ class _TelaDetalhesSessaoState extends State<TelaDetalhesSessao> {
                           children: [
                             CircleAvatar(
                               radius: 22,
-                              backgroundColor: Colors.purple,
-                              child: HeroIcon(
-                                HeroIcons.user,
-                                color: Colors.white,
-                              ),
+                              backgroundImage: AssetImage('assets/images/userProfissional.png'),
                             ),
                             SizedBox(width: 8),
                             Column(
@@ -199,7 +195,10 @@ class _TelaDetalhesSessaoState extends State<TelaDetalhesSessao> {
                           ],
                         ),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            // Navegar para a tela de detalhes do profissional
+                            Navigator.pushNamed(context, '/telaDetalhesProfissional');
+                          },
                           borderRadius: BorderRadius.circular(8),
                           child: const Row(
                             mainAxisSize: MainAxisSize.min,
