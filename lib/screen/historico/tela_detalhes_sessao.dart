@@ -1,5 +1,7 @@
+import 'package:fastmov/screen/historico/rating_modal.dart';
 import 'package:fastmov/widget/custom_appBar_controller.dart';
 import 'package:fastmov/widget/custom_app_text.dart';
+import 'package:fastmov/widget/custom_button.dart';
 import 'package:fastmov/widget/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:heroicons/heroicons.dart';
@@ -69,6 +71,23 @@ class _TelaDetalhesSessaoState extends State<TelaDetalhesSessao> {
                         unselectedColor: const Color(0xffE9E8EE),
                         roundedEdges: const Radius.circular(10),
                       ),
+                    ),
+                    const SizedBox(height: 24),
+                    CustomButton(
+                      label: 'Relatorio',
+                      type: ButtonType.primary,
+                      onPressed: () {},
+                    ),
+                    const SizedBox(height: 10),
+                    CustomButton(
+                      label: 'Avaliar Consulta',
+                      type: ButtonType.outline,
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (_) => const RatingModal(),
+                        );
+                      },
                     ),
                   ],
                 ),
