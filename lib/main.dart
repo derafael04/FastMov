@@ -1,3 +1,4 @@
+import 'package:fastmov/screen/chat/tela_chat.dart';
 import 'package:fastmov/screen/historico/tela_detalhes_profissional.dart';
 import 'package:fastmov/screen/historico/tela_detalhes_sessao.dart';
 import 'package:fastmov/screen/historico/tela_relatorio_sessao.dart';
@@ -60,7 +61,8 @@ class MyApp extends StatelessWidget {
         '/telaValidarCadastro': (context) => const TelaValidarCadastro(),
         '/telaDetalhesSessao': (context) => const TelaDetalhesSessao(),
         '/telaDetalhesProfissional': (context) => const TelaDetalhesProfissional(),
-        '/telaRelatorioSessao': (context) => const TelaRelatorioSessao()
+        '/telaRelatorioSessao': (context) => const TelaRelatorioSessao(),
+        '/chatScreen': (context) => const ChatScreen()
       },
     );
   }

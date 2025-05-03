@@ -23,7 +23,9 @@ class _TelaDetalhesSessaoState extends State<TelaDetalhesSessao> {
         title: 'Detalhes do Agendamento',
         actions: IconButton(
             icon: const HeroIcon(HeroIcons.chatBubbleLeftRight),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed('/chatScreen');
+            },
           ), 
       ),
       body: Padding(
