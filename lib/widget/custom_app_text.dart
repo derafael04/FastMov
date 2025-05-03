@@ -10,7 +10,8 @@ enum AppTextStyleType {
   bodyStrong,
   body,
   caption,
-  semiBold
+  semiBold,
+  label
 }
 
 class AppText extends StatelessWidget {
@@ -89,6 +90,12 @@ class AppText extends StatelessWidget {
         return GoogleFonts.outfit(
           fontSize: 18,
           fontWeight: (isNotHeavy ?? false) ? FontWeight.w200 : FontWeight.w600,
+          color: color ?? defaultColor,
+        );
+      case AppTextStyleType.label:
+        return GoogleFonts.outfit(
+          fontSize: 12,
+          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w200,
           color: color ?? defaultColor,
         );
     }

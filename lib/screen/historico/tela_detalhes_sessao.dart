@@ -76,7 +76,9 @@ class _TelaDetalhesSessaoState extends State<TelaDetalhesSessao> {
                     CustomButton(
                       label: 'Relatorio',
                       type: ButtonType.primary,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/telaRelatorioSessao');
+                      },
                     ),
                     const SizedBox(height: 10),
                     CustomButton(
