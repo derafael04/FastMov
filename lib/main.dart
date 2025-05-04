@@ -10,6 +10,7 @@ import 'package:fastmov/screen/login/cadastro/tela_cadastro_login.dart';
 import 'package:fastmov/screen/login/cadastro/tela_validar_cadastro.dart';
 import 'package:fastmov/screen/login/tela_esqueceu_senha.dart';
 import 'package:fastmov/screen/login/tela_login_inicial.dart';
+import 'package:fastmov/screen/perfil/tela_perfil.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
@@ -62,7 +63,8 @@ class MyApp extends StatelessWidget {
         '/telaDetalhesSessao': (context) => const TelaDetalhesSessao(),
         '/telaDetalhesProfissional': (context) => const TelaDetalhesProfissional(),
         '/telaRelatorioSessao': (context) => const TelaRelatorioSessao(),
-        '/chatScreen': (context) => const ChatScreen()
+        '/chatScreen': (context) => const ChatScreen(),
+        '/telaPerfil': (context) => const TelaPerfil()
       },
     );
   }

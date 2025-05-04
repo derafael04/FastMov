@@ -6,17 +6,17 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Drawer(
+    return Drawer(
       backgroundColor: Colors.white,
       child: SafeArea(
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           primary: true,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 24),
-              Center(
+              const SizedBox(height: 24),
+              const Center(
                 child: Column(
                   children: [
                     CircleAvatar(
@@ -42,16 +42,16 @@ class CustomDrawer extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 24),
-              DrawerItem(icon: HeroIcons.fire, title: 'Atividades'),
-              DrawerItem(icon: HeroIcons.creditCard, title: 'Assinatura'),
-              DrawerItem(icon: HeroIcons.user, title: 'Perfil'),
-              DrawerItem(icon: HeroIcons.mapPin, title: 'Endereço'),
-              DrawerItem(icon: HeroIcons.banknotes, title: 'Pagamentos'),
-              Divider(),
-              DrawerItem(icon: HeroIcons.arrowLeftStartOnRectangle, title: 'Sair do App'),
-              DrawerItem(icon: HeroIcons.questionMarkCircle, title: 'Ajuda'),
-              DrawerItem(icon: HeroIcons.documentText, title: 'Termos e Aceites'),
+              const SizedBox(height: 24),
+              DrawerItem(icon: HeroIcons.fire, title: 'Atividades', onTap: () {}),
+              DrawerItem(icon: HeroIcons.creditCard, title: 'Assinatura', onTap: () {},),
+              DrawerItem(icon: HeroIcons.user, title: 'Perfil', onTap: () => Navigator.of(context).pushNamed('/telaPerfil')),
+              DrawerItem(icon: HeroIcons.mapPin, title: 'Endereço', onTap: () {}),
+              DrawerItem(icon: HeroIcons.banknotes, title: 'Pagamentos', onTap: () {}),
+              const Divider(),
+              DrawerItem(icon: HeroIcons.arrowLeftStartOnRectangle, title: 'Sair do App', onTap: () {}),
+              DrawerItem(icon: HeroIcons.questionMarkCircle, title: 'Ajuda', onTap: () {}),
+              DrawerItem(icon: HeroIcons.documentText, title: 'Termos e Aceites', onTap: () {}),
             ],
           ),
         ),
@@ -63,8 +63,9 @@ class CustomDrawer extends StatelessWidget {
 class DrawerItem extends StatelessWidget {
   final HeroIcons icon;
   final String title;
+  final Function() onTap;
 
-  const DrawerItem({super.key, required this.icon, required this.title});
+  const DrawerItem({super.key, required this.icon, required this.title, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -76,10 +77,7 @@ class DrawerItem extends StatelessWidget {
           fontSize: 16,
         ),
       ),
-      onTap: () {
-        Navigator.pop(context); // Fecha o Drawer
-        // Adicione a navegação aqui se necessário
-      },
+      onTap: onTap
     );
   }
 }
