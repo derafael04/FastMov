@@ -1,4 +1,8 @@
+import 'package:fastmov/widget/custom_app_text.dart';
+import 'package:fastmov/widget/custom_card.dart';
+import 'package:fastmov/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:heroicons/heroicons.dart';
 
 class TelaFavoritos extends StatefulWidget {
   const TelaFavoritos({super.key});
@@ -10,6 +14,122 @@ class TelaFavoritos extends StatefulWidget {
 class _TelaFavoritosState extends State<TelaFavoritos> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
+        child: SingleChildScrollView(
+          primary: true,
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              CustomTextField(
+                hintText: 'Pesquisar',
+                prefixIcon: const HeroIcon(
+                  HeroIcons.magnifyingGlass,
+                  color: Color(0xFF9E9E9E),
+                ),
+                onChanged: (valor) {},
+              ),
+              const SizedBox(height: 24),
+              ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return _itemFavorito(
+                    'Márcio André',
+                    'Fisioterapeuta',
+                    '4.5',
+                    '1.9'
+                  );
+                }, 
+                separatorBuilder: (context, index) => const SizedBox(height: 16), 
+                itemCount: 3
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _itemFavorito(String nome, String especiallizacao, String nota, String distanciaAtendimento) {
+    return CustomCard(
+      margin: const EdgeInsets.all(0),
+      type: CardType.primary,
+      width: MediaQuery.of(context).size.width,
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  const CircleAvatar(
+                    radius: 18,
+                    backgroundImage: AssetImage('assets/images/userProfissional.png'),
+                  ),
+                  const SizedBox(width: 8),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AppText(text: nome, style: AppTextStyleType.bodyLarge),
+                      AppText(text: especiallizacao, style: AppTextStyleType.body, isNotHeavy: true),
+                      Row(
+                        children: [
+                          Row(
+                            children: [
+                              const HeroIcon(HeroIcons.star, size: 14, color: Color(0xffFFCC00), style: HeroIconStyle.solid,),
+                              AppText(text: nota, style: AppTextStyleType.label),
+                            ],
+                          ),
+                          const SizedBox(width: 16),
+                          Row(
+                            children: [
+                              const HeroIcon(HeroIcons.mapPin, size: 14,),
+                              AppText(text: distanciaAtendimento, style: AppTextStyleType.label),
+                            ],
+                          )
+                        ],
+                      )
+                    ],
+                  )
+                ],
+              ),
+              InkWell(
+                onTap: () {
+                  
+                },
+                child: HeroIcon(HeroIcons.heart, color: Theme.of(context).primaryColor, size: 28, style: HeroIconStyle.solid,)),
+            ],
+          ),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
+            child: Divider(
+              color: Color(0xFFD2D2D2)
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: Theme.of(context).primaryColor
+                  )
+                ),
+                child: const Text(
+                  'Detalhes',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
   }
 }
