@@ -1,5 +1,7 @@
 import 'package:fastmov/widget/custom_appBar_controller.dart';
 import 'package:fastmov/widget/custom_app_text.dart';
+import 'package:fastmov/widget/custom_button.dart';
+import 'package:fastmov/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:heroicons/heroicons.dart';
 
@@ -11,6 +13,9 @@ class TelaPerfil extends StatefulWidget {
 }
 
 class _TelaPerfilState extends State<TelaPerfil> {
+  final TextEditingController _controllerNome = TextEditingController();
+  final TextEditingController _controllerEmail = TextEditingController();
+  final TextEditingController _controllerTelefone = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -39,17 +44,38 @@ class _TelaPerfilState extends State<TelaPerfil> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const SizedBox(height: 48),
-                _customItens('Nome', 'Rafael Silva', () {}),
+                _customItens('Nome', 'Rafael Silva', () {
+                  bottomSheetEditPerfil(
+                    'Alterar nome',
+                    'Nome completo',
+                    _controllerNome,
+                    () => Navigator.of(context).pop()
+                  );
+                }),
                 const Padding(
                   padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
                   child: Divider(),
                 ),
-                _customItens('E-mail', 'fastmov@fastmov.com', () {}),
+                _customItens('E-mail', 'fastmov@fastmov.com', () {
+                  bottomSheetEditPerfil(
+                    'Alterar e-mail',
+                    'E-mail',
+                    _controllerEmail,
+                    () => Navigator.of(context).pop()
+                  );
+                }),
                 const Padding(
                   padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
                   child: Divider(),
                 ),
-                _customItens('Telefone', '(11) 9 8080-7070', () {},),
+                _customItens('Telefone', '(11) 9 8080-7070', () {
+                  bottomSheetEditPerfil(
+                    'Alterar Telefone',
+                    'Telefone',
+                    _controllerTelefone,
+                    () => Navigator.of(context).pop()
+                  );
+                },),
                 const Padding(
                   padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
                   child: Divider(),
@@ -73,22 +99,22 @@ class _TelaPerfilState extends State<TelaPerfil> {
   }
 
   Widget _customItens(String titulo, String subTexto, Function()? onTap) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AppText(text: titulo, style: AppTextStyleType.subtitle),
-            AppText(text: subTexto, style: AppTextStyleType.body, isNotHeavy: true),
-          ],
-        ),
-        IconButton(
-          onPressed: onTap, 
-          icon: const HeroIcon(HeroIcons.pencil, color: Color(0xFF9E9E9E), size: 20,)
-        )
-      ],
+    return InkWell(
+      onTap: onTap,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AppText(text: titulo, style: AppTextStyleType.subtitle),
+              AppText(text: subTexto, style: AppTextStyleType.body, isNotHeavy: true),
+            ],
+          ),
+          const HeroIcon(HeroIcons.pencil, color: Color(0xFF9E9E9E), size: 20,)
+        ],
+      ),
     );
   }
 
@@ -103,9 +129,9 @@ class _TelaPerfilState extends State<TelaPerfil> {
             bottom: MediaQuery.of(context).viewInsets.bottom,
           ),
           child: Container(
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+            decoration: BoxDecoration(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
             ),
             padding: const EdgeInsets.all(24),
             child: Column(
@@ -131,40 +157,17 @@ class _TelaPerfilState extends State<TelaPerfil> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 24),
-                TextField(
-                  controller: controller,
-                  decoration: InputDecoration(
-                    labelText: labelText,
-                    filled: true,
-                    fillColor: Colors.grey[100],
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide.none,
-                    ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 24, 0, 24),
+                  child: CustomTextField(
+                    hintText: labelText,
+                    controller: controller,
+                    onChanged: (p0) {},
                   ),
                 ),
-                const SizedBox(height: 24),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF101233),
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                    onPressed: onTap,
-                    child: const Text(
-                      'Salvar',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
+                CustomButton(label: 'Salvar', type: ButtonType.primary,
+                  onPressed: onTap,
+                )
               ],
             ),
           ),
