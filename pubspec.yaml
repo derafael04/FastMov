@@ -37,7 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   introduction_screen: ^3.1.17
   google_fonts: ^6.2.1
-  flutter_launcher_icons: ^0.14.2
+  flutter_launcher_icons: ^0.14.3
   ionicons: ^0.2.2
   heroicons: ^0.11.0
   intl: ^0.19.0
@@ -61,8 +61,8 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/logo/logo.png"
-  min_sdk_android: 21
+  image_path: "assets/icon/icon.png"
+  min_sdk_android: 21 
 
 # The following section is specific to Flutter packages.
 flutter:

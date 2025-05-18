@@ -11,6 +11,8 @@ class TelaLoginInicial extends StatefulWidget {
 }
 
 class _TelaLoginInicialState extends State<TelaLoginInicial> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   bool obscureText = true;
 
   @override
@@ -32,20 +34,17 @@ class _TelaLoginInicialState extends State<TelaLoginInicial> {
             textAlign: TextAlign.left,
           ),
           const SizedBox(height: 20),
-          const CustomTextField(hintText: 'Email'),
+          CustomTextField(
+            hintText: 'Email', 
+            controller: emailController,
+            onChanged: (p0) {},
+          ),
           const SizedBox(height: 10),
-          CustomTextField(hintText: 'Senha', obscureText: obscureText,
-            suffixIcon: IconButton(
-              icon: Icon(
-                obscureText ? Icons.visibility : Icons.visibility_off,
-                color: Colors.grey,
-              ),
-              onPressed: () {
-                setState(() {
-                  obscureText = !obscureText;
-                });
-              },
-            ),
+          CustomTextField(
+            hintText: 'Senha',
+            isPassword: true,
+            controller: passwordController,
+            onChanged: (p0) {},
           ),
           Align(
             alignment: Alignment.centerRight,

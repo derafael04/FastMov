@@ -20,47 +20,29 @@ class _TelaCadastroSenhaState extends State<TelaCadastroSenha> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Column(
+        const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const AppText(
+            AppText(
               text: 'Email e Senha',
               style: AppTextStyleType.title,
             ),
-            const SizedBox(height: 24),
-            const AppText(
+            SizedBox(height: 24),
+            AppText(
               text: 'Digite seu e-mail para se cadastrar e sua senha',
               style: AppTextStyleType.bodyLarge,
             ),
-            const SizedBox(height: 24),
-            const CustomTextField(hintText: 'Email'),
-            const SizedBox(height: 10),
-            CustomTextField(hintText: 'Senha', obscureText: obscureText, 
-              suffixIcon: IconButton(
-                icon: Icon(
-                  obscureText ? Icons.visibility : Icons.visibility_off,
-                  color: Colors.grey,
-                ),
-                onPressed: () {
-                  setState(() {
-                    obscureText = !obscureText;
-                  });
-                },
-              ),
+            SizedBox(height: 24),
+            CustomTextField(hintText: 'Email'),
+            SizedBox(height: 10),
+            CustomTextField(
+              hintText: 'Senha',
+              isPassword: true,
             ),
-            const SizedBox(height: 10),
-            CustomTextField(hintText: 'Confirmar senha', obscureText: obscureTextConfirm,
-              suffixIcon: IconButton(
-                icon: Icon(
-                  obscureTextConfirm ? Icons.visibility : Icons.visibility_off,
-                  color: Colors.grey,
-                ),
-                onPressed: () {
-                  setState(() {
-                    obscureTextConfirm = !obscureTextConfirm;
-                  });
-                },
-              ),
+            SizedBox(height: 10),
+            CustomTextField(
+              hintText: 'Confirmar senha',
+              isPassword: true,
             ),
           ],
         ),
