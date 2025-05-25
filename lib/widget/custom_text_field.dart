@@ -43,7 +43,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           borderRadius: BorderRadius.circular(8),
           borderSide: BorderSide.none,
         ),
-        prefixIcon: widget.prefixIcon ?? Container(),
+        prefixIcon: widget.prefixIcon,
         suffixIcon: (widget.isPassword ?? false)
             ? IconButton(
                 icon: Icon(

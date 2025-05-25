@@ -85,7 +85,9 @@ class _TelaPerfilState extends State<TelaPerfil> {
                   children: [
                     const AppText(text: 'Alterar Senha', style: AppTextStyleType.subtitle),
                     IconButton(
-                      onPressed: () {}, 
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/telaAlterarSenha');
+                      }, 
                       icon: const HeroIcon(HeroIcons.chevronRight, color: Color(0xFF9E9E9E), size: 20,)
                     )
                   ],
