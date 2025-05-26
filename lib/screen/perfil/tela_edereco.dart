@@ -1,3 +1,4 @@
+import 'package:fastmov/screen/perfil/tela_novoEndereco.dart';
 import 'package:fastmov/widget/custom_appBar_controller.dart';
 import 'package:fastmov/widget/custom_app_text.dart';
 import 'package:fastmov/widget/custom_button.dart';
@@ -19,7 +20,14 @@ class _TelaEderecoState extends State<TelaEdereco> {
       appBar: CustomAppBar(
         title: 'Endereços',
         actions: IconButton(
-          onPressed: () {}, 
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const TelaCadastroEndereco(editar: false),
+              ),
+            );
+          }, 
           icon: const HeroIcon(HeroIcons.plus, size: 24),
         ),
       ),
@@ -80,7 +88,12 @@ class _TelaEderecoState extends State<TelaEdereco> {
                 label: 'Editar',
                 onTap: () {
                   Navigator.pop(context);
-                  // Ação de editar
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TelaCadastroEndereco(editar: true),
+                    ),
+                  );
                 },
               ),
               const Divider(height: 1),
