@@ -1,4 +1,5 @@
 import 'package:fastmov/widget/custom_app_text.dart';
+import 'package:fastmov/widget/custom_button.dart';
 import 'package:fastmov/widget/custom_card.dart';
 import 'package:fastmov/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -96,37 +97,17 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
                 ],
               ),
               InkWell(
-                onTap: () {
-                  
-                },
+                onTap: () {},
                 child: HeroIcon(HeroIcons.heart, color: Theme.of(context).primaryColor, size: 28, style: HeroIconStyle.solid,)),
             ],
           ),
-          const Padding(
-            padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
-            child: Divider(
-              color: Color(0xFFD2D2D2)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
+            child: CustomButton(
+              label: 'Agendar Consulta', 
+              type: ButtonType.outline,
+              onPressed: () {},
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(
-                    color: Theme.of(context).primaryColor
-                  )
-                ),
-                child: const Text(
-                  'Detalhes',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ],
           )
         ],
       ),

@@ -151,36 +151,24 @@ class _HomeState extends State<Home> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 200),
-                    transitionBuilder: (child, animation) {
-                      return ScaleTransition(scale: animation, child: child);
-                    },
-                    child: HeroIcon(
-                      _getIcon(index),
-                      key: ValueKey('icon_$index$isSelected'),
-                      color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
-                      size: 24,
-                    ),
+                  HeroIcon(
+                    _getIcon(index),
+                    key: ValueKey('icon_$index$isSelected'),
+                    color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
+                    size: 24,
                   ),
                   const SizedBox(height: 2),
-                  AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 200),
-                    transitionBuilder: (child, animation) {
-                      return FadeTransition(opacity: animation, child: child);
-                    },
-                    child: isSelected
-                        ? Text(
-                            _getLabel(index),
-                            key: ValueKey('label_$index'),
-                            style: const TextStyle(
-                              color: Color(0xFF1C1C43),
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          )
-                        : const SizedBox(height: 0),
-                  ),
+                  isSelected
+                  ? Text(
+                      _getLabel(index),
+                      key: ValueKey('label_$index'),
+                      style: const TextStyle(
+                        color: Color(0xFF1C1C43),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    )
+                  : const SizedBox(height: 0),
                 ],
               ),
             );
