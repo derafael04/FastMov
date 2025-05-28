@@ -1,4 +1,4 @@
-import 'package:fastmov/screen/perfil/tela_novoEndereco.dart';
+import 'package:fastmov/screen/perfil/endereco/tela_novoEndereco.dart';
 import 'package:fastmov/widget/custom_appBar_controller.dart';
 import 'package:fastmov/widget/custom_app_text.dart';
 import 'package:fastmov/widget/custom_button.dart';

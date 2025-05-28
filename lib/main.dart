@@ -13,7 +13,7 @@ import 'package:fastmov/screen/login/tela_login_inicial.dart';
 import 'package:fastmov/screen/perfil/pagamentos/tela_formas_pagamentos.dart';
 import 'package:fastmov/screen/perfil/pagamentos/tela_historico_pagamentos.dart';
 import 'package:fastmov/screen/perfil/tela_alterar_senha.dart';
-import 'package:fastmov/screen/perfil/tela_edereco.dart';
+import 'package:fastmov/screen/perfil/endereco/tela_edereco.dart';
 import 'package:fastmov/screen/perfil/pagamentos/tela_pagamentos.dart';
 import 'package:fastmov/screen/perfil/tela_perfil.dart';
 import 'package:flutter/material.dart';
