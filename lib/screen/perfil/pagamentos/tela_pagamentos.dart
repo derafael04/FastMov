@@ -15,7 +15,7 @@ class _TelaPagamentosState extends State<TelaPagamentos> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Endereços',
+        title: 'Pagamentos',
         actions: IconButton(
           onPressed: () {
             Navigator.of(context).pushNamed('/telaAjuda');
@@ -30,7 +30,9 @@ class _TelaPagamentosState extends State<TelaPagamentos> {
             _itens(
               title: 'Histórico de pagamentos',
               subtitle: 'Verificar todo o histórico de pagamento',
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushNamed('/telaHistoricoPagamentos');
+              },
             ),
             const Padding(
               padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
@@ -39,7 +41,9 @@ class _TelaPagamentosState extends State<TelaPagamentos> {
             _itens(
               title: 'Cadastro do cartão',
               subtitle: 'Verificar todos cartões cadastrados no aplicativo',
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushNamed('/telaFormasPagamentos');
+              },
             )
           ],
         ),
@@ -47,24 +51,24 @@ class _TelaPagamentosState extends State<TelaPagamentos> {
     );
   }
 
-  Row _itens({required String title, required String subtitle, required Function() onTap}) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AppText(text: title, style: AppTextStyleType.subtitle),
-              AppText(text: subtitle, style: AppTextStyleType.body, isNotHeavy: true),
-            ],
+  Widget _itens({required String title, required String subtitle, required Function() onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppText(text: title, style: AppTextStyleType.bodyStrong),
+                AppText(text: subtitle, style: AppTextStyleType.body, isNotHeavy: true),
+              ],
+            ),
           ),
-        ),
-        IconButton(
-          onPressed: onTap, 
-          icon: const HeroIcon(HeroIcons.chevronRight, size: 24),
-        ),
-      ],
+          const HeroIcon(HeroIcons.chevronRight, size: 24),
+        ],
+      ),
     );
   }
 }

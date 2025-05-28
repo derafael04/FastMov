@@ -1,4 +1,4 @@
-import 'package:fastmov/screen/perfil/tela_novoEndereco.dart';
+import 'package:fastmov/screen/perfil/pagamentos/tela_cadastrarEditar_cartao.dart';
 import 'package:fastmov/widget/custom_appBar_controller.dart';
 import 'package:fastmov/widget/custom_app_text.dart';
 import 'package:fastmov/widget/custom_button.dart';
@@ -6,25 +6,25 @@ import 'package:fastmov/widget/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:heroicons/heroicons.dart';
 
-class TelaEdereco extends StatefulWidget {
-  const TelaEdereco({super.key});
+class TelaFormasPagamentos extends StatefulWidget {
+  const TelaFormasPagamentos({super.key});
 
   @override
-  State<TelaEdereco> createState() => _TelaEderecoState();
+  State<TelaFormasPagamentos> createState() => _TelaFormasPagamentosState();
 }
 
-class _TelaEderecoState extends State<TelaEdereco> {
+class _TelaFormasPagamentosState extends State<TelaFormasPagamentos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Endereços',
+        title: 'Formas de Pagamento',
         actions: IconButton(
           onPressed: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const TelaCadastroEndereco(editar: false),
+                builder: (context) => const TelaCadastrareditarCartao(editar: false),
               ),
             );
           }, 
@@ -34,34 +34,39 @@ class _TelaEderecoState extends State<TelaEdereco> {
       body: Padding(
         padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
         child: Column(
-          spacing: 16,
-          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const AppText(text: 'Edereço Priniapl', style: AppTextStyleType.bodyLarge),
             CustomCard(
               margin: EdgeInsets.zero,
               type: CardType.primary, 
               body: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AppText(text: 'R. Padre Chico', style: AppTextStyleType.bodyStrong),
-                        AppText(text: 'Pompeia - Cond. Viena apart 1801 - São Paulo - Sp', style: AppTextStyleType.body, isNotHeavy: true),
-                      ],
-                    ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        height: 32,
+                        width: 42,
+                        child: Image.asset('assets/images/icon/mastercartao.png',)
+                      ),
+                      const SizedBox(width: 16),
+                      const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AppText(text: 'Crédito', style: AppTextStyleType.body),
+                          AppText(text: '********** 7124', style: AppTextStyleType.body, isNotHeavy: true),
+                        ],
+                      )
+                    ],
                   ),
                   IconButton(
                     onPressed: () {
                       _showBottomSheet(context);
                     }, 
                     icon: const HeroIcon(HeroIcons.ellipsisVertical, size: 24),
-                  ),
+                  )
                 ],
-              ),
+              )
             )
           ],
         ),
@@ -91,7 +96,7 @@ class _TelaEderecoState extends State<TelaEdereco> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const TelaCadastroEndereco(editar: true),
+                      builder: (context) => const TelaCadastrareditarCartao(editar: true),
                     ),
                   );
                 },
@@ -112,7 +117,7 @@ class _TelaEderecoState extends State<TelaEdereco> {
     );
   }
 
-   Widget _buildItem({
+  Widget _buildItem({
     required HeroIcons icon,
     required String label,
     required VoidCallback onTap,
@@ -149,12 +154,12 @@ class _TelaEderecoState extends State<TelaEdereco> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const AppText(
-                  text: 'Excluir Endereço',
+                  text: 'Excluir Forma de Pagamento',
                   style: AppTextStyleType.subtitle,
                 ),
                 const SizedBox(height: 12),
                 const AppText(
-                  text: 'Deseja realmente excluir esse endereço?',
+                  text: 'Deseja realmente excluir esse forma de pagamento?',
                   style: AppTextStyleType.bodyLarge,
                   textAlign: TextAlign.center,
                   isNotHeavy: true,

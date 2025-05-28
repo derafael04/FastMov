@@ -10,9 +10,11 @@ import 'package:fastmov/screen/login/cadastro/tela_cadastro_login.dart';
 import 'package:fastmov/screen/login/cadastro/tela_validar_cadastro.dart';
 import 'package:fastmov/screen/login/tela_esqueceu_senha.dart';
 import 'package:fastmov/screen/login/tela_login_inicial.dart';
+import 'package:fastmov/screen/perfil/pagamentos/tela_formas_pagamentos.dart';
+import 'package:fastmov/screen/perfil/pagamentos/tela_historico_pagamentos.dart';
 import 'package:fastmov/screen/perfil/tela_alterar_senha.dart';
 import 'package:fastmov/screen/perfil/tela_edereco.dart';
-import 'package:fastmov/screen/perfil/tela_pagamentos.dart';
+import 'package:fastmov/screen/perfil/pagamentos/tela_pagamentos.dart';
 import 'package:fastmov/screen/perfil/tela_perfil.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -71,6 +73,8 @@ class MyApp extends StatelessWidget {
         '/telaAlterarSenha': (context) => const TelaAlterarSenha(),
         '/telaEdereco': (context) => const TelaEdereco(),
         '/telaPagamentos': (context) => const TelaPagamentos(),
+        '/telaHistoricoPagamentos': (context) => const TelaHistoricoPagamentos(),
+        '/telaFormasPagamentos': (context) => const TelaFormasPagamentos(),
       },
     );
   }
