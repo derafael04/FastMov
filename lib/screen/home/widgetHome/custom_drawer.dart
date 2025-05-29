@@ -44,7 +44,7 @@ class CustomDrawer extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               DrawerItem(icon: HeroIcons.fire, title: 'Atividades', onTap: () {}),
-              DrawerItem(icon: HeroIcons.creditCard, title: 'Assinatura', onTap: () {},),
+              DrawerItem(icon: HeroIcons.creditCard, title: 'Assinatura', onTap: () => Navigator.of(context).pushNamed('/telaAssinatura'),),
               DrawerItem(icon: HeroIcons.user, title: 'Perfil', onTap: () => Navigator.of(context).pushNamed('/telaPerfil')),
               DrawerItem(icon: HeroIcons.mapPin, title: 'Endereço', onTap: () => Navigator.of(context).pushNamed('/telaEdereco')),
               DrawerItem(icon: HeroIcons.banknotes, title: 'Pagamentos', onTap: () => Navigator.of(context).pushNamed('/telaPagamentos')),
