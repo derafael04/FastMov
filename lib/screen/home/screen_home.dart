@@ -64,7 +64,7 @@ class _HomeState extends State<Home> {
           style: GoogleFonts.outfit(
             fontSize: 32,
             fontWeight: FontWeight.normal,
-            color: const Color(0xFF6868AC)
+            color: const Color(0xFF161934)
           ),
         );
       case 1:
