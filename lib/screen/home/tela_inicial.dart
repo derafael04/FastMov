@@ -1,5 +1,6 @@
 import 'package:fastmov/screen/home/widgetHome/item_card_indicacao.dart';
 import 'package:fastmov/screen/home/widgetHome/item_card_ofertas.dart';
+import 'package:fastmov/screen/home/widgetHome/item_nossos_servicos.dart';
 import 'package:flutter/material.dart';
 
 class TelaInicial extends StatefulWidget {
@@ -19,7 +20,8 @@ class _TelaInicialState extends State<TelaInicial> {
           spacing: 16,
           children: [
             ItemCardIndicacao(),
-            ItemCardOfertas()
+            ItemCardOfertas(),
+            ItemNossosServicos()
           ],
         ),
       ),
