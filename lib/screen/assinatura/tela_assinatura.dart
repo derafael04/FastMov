@@ -2,7 +2,6 @@ import 'package:custom_sliding_segmented_control/custom_sliding_segmented_contro
 import 'package:fastmov/widget/card_anuncio.dart';
 import 'package:fastmov/widget/custom_appBar_controller.dart';
 import 'package:fastmov/widget/custom_app_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:heroicons/heroicons.dart';
 
