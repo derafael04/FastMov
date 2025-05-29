@@ -1,4 +1,5 @@
 import 'package:fastmov/screen/assinatura/tela_assinatura.dart';
+import 'package:fastmov/screen/assinatura/tela_finalizar_assinatura.dart';
 import 'package:fastmov/screen/chat/tela_chat.dart';
 import 'package:fastmov/screen/historico/tela_detalhes_profissional.dart';
 import 'package:fastmov/screen/historico/tela_detalhes_sessao.dart';
@@ -77,6 +78,7 @@ class MyApp extends StatelessWidget {
         '/telaHistoricoPagamentos': (context) => const TelaHistoricoPagamentos(),
         '/telaFormasPagamentos': (context) => const TelaFormasPagamentos(),
         '/telaAssinatura': (context) => const TelaAssinatura(),
+        '/telaFinalizarAssinatura': (context) => const TelaFinalizarAssinatura(),
       },
     );
   }
