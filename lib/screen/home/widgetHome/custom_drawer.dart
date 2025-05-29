@@ -16,23 +16,29 @@ class CustomDrawer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 24),
-              const Center(
+              Center(
                 child: Column(
                   children: [
-                    CircleAvatar(
-                      radius: 32,
-                      backgroundColor: Colors.purple,
-                      child: Icon(Icons.person, color: Colors.white, size: 32),
+                    Container(
+                      height: 90,
+                      width: 90,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/user.png'),
+                          fit: BoxFit.cover,
+                        )
+                      ),
                     ),
-                    SizedBox(height: 8),
-                    Text(
+                    const SizedBox(height: 8),
+                    const Text(
                       'Rafael Silva',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Text(
+                    const Text(
                       'Perfil',
                       style: TextStyle(
                         color: Colors.grey,

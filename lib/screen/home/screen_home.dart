@@ -114,7 +114,7 @@ class _HomeState extends State<Home> {
             onTap: () => _scaffoldKey.currentState?.openDrawer(),
             child: const CircleAvatar(
               backgroundImage: AssetImage('assets/images/user.png'),
-              radius: 18,
+              radius: 20,
             ),
           ),
         ),
