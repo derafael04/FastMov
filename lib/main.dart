@@ -7,7 +7,7 @@ import 'package:fastmov/screen/historico/tela_relatorio_sessao.dart';
 import 'package:fastmov/screen/home/screen_home.dart';
 import 'package:fastmov/screen/home/screen_introduction.dart';
 import 'package:fastmov/screen/home/tela_inicial.dart';
-import 'package:fastmov/screen/information/tela_ajuda.dart';
+import 'package:fastmov/screen/ajuda/tela_ajuda.dart';
 import 'package:fastmov/screen/login/cadastro/tela_cadastro_login.dart';
 import 'package:fastmov/screen/login/cadastro/tela_validar_cadastro.dart';
 import 'package:fastmov/screen/login/tela_esqueceu_senha.dart';
