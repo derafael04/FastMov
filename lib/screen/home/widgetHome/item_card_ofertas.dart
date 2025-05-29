@@ -20,7 +20,7 @@ class _ItemCardOfertasState extends State<ItemCardOfertas> {
           const AppText(text: '#EspecialParaVocê', style: AppTextStyleType.subtitle),
           const SizedBox(height: 8),
           SizedBox(
-            height: 220,
+            height: 156,
             child: ListView.separated(
               //shrinkWrap: true,
               scrollDirection: Axis.horizontal,

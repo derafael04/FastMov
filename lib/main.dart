@@ -6,6 +6,7 @@ import 'package:fastmov/screen/historico/tela_detalhes_sessao.dart';
 import 'package:fastmov/screen/historico/tela_relatorio_sessao.dart';
 import 'package:fastmov/screen/home/screen_home.dart';
 import 'package:fastmov/screen/home/screen_introduction.dart';
+import 'package:fastmov/screen/home/tela_indique.dart';
 import 'package:fastmov/screen/home/tela_inicial.dart';
 import 'package:fastmov/screen/ajuda/tela_ajuda.dart';
 import 'package:fastmov/screen/login/cadastro/tela_cadastro_login.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         cardColor: Colors.white,
         canvasColor: const Color(0xffF3F3F4),
         bottomSheetTheme: const BottomSheetThemeData(backgroundColor: Colors.transparent),
+        bottomAppBarTheme: const BottomAppBarTheme(color: Colors.transparent),
         shadowColor: const Color(0xff90949A),
         dialogTheme: DialogTheme(
             shape: RoundedRectangleBorder(
@@ -79,6 +81,7 @@ class MyApp extends StatelessWidget {
         '/telaFormasPagamentos': (context) => const TelaFormasPagamentos(),
         '/telaAssinatura': (context) => const TelaAssinatura(),
         '/telaFinalizarAssinatura': (context) => const TelaFinalizarAssinatura(),
+        '/telaIndique': (context) => const TelaIndique(),
       },
     );
   }

@@ -1,3 +1,4 @@
+import 'package:fastmov/widget/custom_app_text.dart';
 import 'package:flutter/material.dart';
 
 class CardAnuncio extends StatelessWidget {
@@ -60,15 +61,9 @@ class CardAnuncio extends StatelessWidget {
                   child: const Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        'Detalhes',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                      SizedBox(width: 6),
-                      Icon(Icons.chevron_right, size: 16, color: Colors.black),
+                      AppText(text: 'Comprar', style: AppTextStyleType.bodyStrong),
+                      // SizedBox(width: 6),
+                      // Icon(Icons.chevron_right, size: 16, color: Colors.black),
                     ],
                   ),
                 ),
