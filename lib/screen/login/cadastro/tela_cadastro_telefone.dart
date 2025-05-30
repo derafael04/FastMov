@@ -14,33 +14,33 @@ class TelaCadastroTelefone extends StatefulWidget {
 class _TelaCadastroTelefoneState extends State<TelaCadastroTelefone> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AppText(
-              text: 'Telefone',
-              style: AppTextStyleType.title,
-            ),
-            SizedBox(height: 24),
-            AppText(
-              text: 'Crie uma conta e aproveite os benefícios que oferecemos para você',
-              style: AppTextStyleType.bodyLarge,
-            ),
-            SizedBox(height: 24),
-            CustomTextField(hintText: 'Número de telefone'),
-          ],
-        ),
-        CustomButton(
+    return Scaffold(
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 0, 0, 16),
+        child: CustomButton(
           label: 'Próximo',
           type: ButtonType.primary,
           onPressed: () {
             Navigator.of(context).pushNamed('/telaValidarCadastro');
           },
         ),
-      ],
+      ),
+      body: const Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AppText(
+            text: 'Telefone',
+            style: AppTextStyleType.title,
+          ),
+          SizedBox(height: 24),
+          AppText(
+            text: 'Crie uma conta e aproveite os benefícios que oferecemos para você',
+            style: AppTextStyleType.bodyLarge,
+          ),
+          SizedBox(height: 24),
+          CustomTextField(hintText: 'Número de telefone'),
+        ],
+      ),
     );
   }
 }

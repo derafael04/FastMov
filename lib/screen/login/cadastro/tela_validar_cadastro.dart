@@ -17,7 +17,7 @@ class _TelaValidarCadastroState extends State<TelaValidarCadastro> {
     return Scaffold(
       appBar: CustomAppBar(
         title: 'Verificar',
-        leading: IconButton(
+        actions: IconButton(
           icon: const HeroIcon(HeroIcons.informationCircle),
           onPressed: () {
             Navigator.pushNamed(context, '/telaAjuda');
@@ -35,7 +35,7 @@ class _TelaValidarCadastroState extends State<TelaValidarCadastro> {
               label: 'Finalizar',
               type: ButtonType.primary,
               onPressed: () {
-                Navigator.pushNamed(context, '/telaInicial');
+                Navigator.pushReplacementNamed(context, '/home');
               },
             ),
           ),

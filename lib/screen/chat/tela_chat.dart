@@ -1,12 +1,16 @@
 import 'package:fastmov/widget/custom_appBar_controller.dart';
 import 'package:flutter/material.dart';
 
-class ChatScreen extends StatelessWidget {
+class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final messages = [
+  State<ChatScreen> createState() => _ChatScreenState();
+}
+
+class _ChatScreenState extends State<ChatScreen> {
+  TextEditingController controller = TextEditingController();
+  final messages = [
       Message(
         text:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fringilla quam eu faci lisis mollis.',
@@ -31,6 +35,8 @@ class ChatScreen extends StatelessWidget {
       ),
     ];
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: const CustomAppBar(
@@ -54,14 +60,15 @@ class ChatScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildMessageInput(BuildContext context) {
+  Widget _buildMessageInput(BuildContext context, ) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
       color: Theme.of(context).scaffoldBackgroundColor,
       child: Row(
         children: [
           Expanded(
             child: TextField(
+              controller: controller,
               decoration: InputDecoration(
                 hintText: 'Mensagem...',
                 hintStyle: const TextStyle(color: Colors.grey),
@@ -74,6 +81,7 @@ class ChatScreen extends StatelessWidget {
                 contentPadding: const EdgeInsets.symmetric(
                     vertical: 0, horizontal: 16),
               ),
+              onChanged: (value) {},
             ),
           ),
           const SizedBox(width: 8),
@@ -81,9 +89,21 @@ class ChatScreen extends StatelessWidget {
             backgroundColor: Theme.of(context).primaryColor,
             child: IconButton(
               icon: const Icon(Icons.arrow_upward, color: Colors.white),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  messages.add(
+                    Message(
+                      text: controller.text,
+                      sender: 'Rafael Silva',
+                      isMe: true,
+                    ),
+                  );
+                  controller.clear();
+                });
+              },
             ),
-          )
+          ),
+          const SizedBox(height: 16)
         ],
       ),
     );

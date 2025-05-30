@@ -17,36 +17,10 @@ class _TelaCadastroSenhaState extends State<TelaCadastroSenha> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AppText(
-              text: 'Email e Senha',
-              style: AppTextStyleType.title,
-            ),
-            SizedBox(height: 24),
-            AppText(
-              text: 'Digite seu e-mail para se cadastrar e sua senha',
-              style: AppTextStyleType.bodyLarge,
-            ),
-            SizedBox(height: 24),
-            CustomTextField(hintText: 'Email'),
-            SizedBox(height: 10),
-            CustomTextField(
-              hintText: 'Senha',
-              isPassword: true,
-            ),
-            SizedBox(height: 10),
-            CustomTextField(
-              hintText: 'Confirmar senha',
-              isPassword: true,
-            ),
-          ],
-        ),
-        CustomButton(
+    return Scaffold(
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 0, 0, 16),
+        child: CustomButton(
           label: 'Próximo',
           type: ButtonType.primary,
           onPressed: () {
@@ -56,7 +30,33 @@ class _TelaCadastroSenhaState extends State<TelaCadastroSenha> {
             );
           },
         ),
-      ],
+      ),
+      body: const Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AppText(
+            text: 'Email e Senha',
+            style: AppTextStyleType.title,
+          ),
+          SizedBox(height: 24),
+          AppText(
+            text: 'Digite seu e-mail para se cadastrar e sua senha',
+            style: AppTextStyleType.bodyLarge,
+          ),
+          SizedBox(height: 24),
+          CustomTextField(hintText: 'Email'),
+          SizedBox(height: 10),
+          CustomTextField(
+            hintText: 'Senha',
+            isPassword: true,
+          ),
+          SizedBox(height: 10),
+          CustomTextField(
+            hintText: 'Confirmar senha',
+            isPassword: true,
+          ),
+        ],
+      ),
     );
   }
 }
