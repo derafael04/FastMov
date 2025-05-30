@@ -254,6 +254,7 @@ class _TelaDetalhesSessaoState extends State<TelaDetalhesSessao> {
                   ],
                 ),
               ),
+              const SizedBox(height: 32)
             ],
           ),
         ),

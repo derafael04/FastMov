@@ -14,15 +14,19 @@ class _TelaInicialState extends State<TelaInicial> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(0, 24, 0, 24),
-        child: Column(
-          spacing: 16,
-          children: [
-            ItemCardIndicacao(),
-            ItemCardOfertas(),
-            ItemNossosServicos()
-          ],
+      body: SingleChildScrollView(
+        primary: true,
+        physics: BouncingScrollPhysics(),
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(0, 24, 0, 24),
+          child: Column(
+            spacing: 24,
+            children: [
+              ItemCardIndicacao(),
+              ItemCardOfertas(),
+              ItemNossosServicos()
+            ],
+          ),
         ),
       ),
     );

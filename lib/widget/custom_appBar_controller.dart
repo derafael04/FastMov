@@ -132,7 +132,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
     return SafeArea(
       child: Container(
         color: backgroundColor,
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
