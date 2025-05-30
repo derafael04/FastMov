@@ -30,7 +30,7 @@ class CustomCard extends StatelessWidget {
       case CardType.primary:
         return isDark ? const Color(0xFF2C2C2C) : const Color(0xFFFFFFFF);
       case CardType.secondary:
-        return isDark ? const Color(0xFF424242) : const Color(0xFF9E9E9E);
+        return isDark ? const Color(0xFF424242) : const Color(0xFFD2D2D2);
     }
   }
 

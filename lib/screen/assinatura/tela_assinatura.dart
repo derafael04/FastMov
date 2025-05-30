@@ -61,7 +61,11 @@ class _TelaAssinaturaState extends State<TelaAssinatura> {
                   shrinkWrap: true,
                   separatorBuilder: (context, index) => const SizedBox(height: 16),
                   itemBuilder: (context, index) {
-                    return const CardAnuncio();
+                    return InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/telaFinalizarAssinatura');
+                      },
+                      child: const CardAnuncio());
                   },
                 ),
               )
@@ -72,7 +76,11 @@ class _TelaAssinaturaState extends State<TelaAssinatura> {
                   shrinkWrap: true,
                   separatorBuilder: (context, index) => const SizedBox(height: 16),
                   itemBuilder: (context, index) {
-                    return const CardAnuncio();
+                    return InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/telaFinalizarAssinatura');
+                      },
+                      child: const CardAnuncio());
                   },
                 ),
               )
