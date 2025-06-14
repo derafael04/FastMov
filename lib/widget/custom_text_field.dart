@@ -213,7 +213,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
                           ),
                           filled: true,
                           hintStyle: CustomTextUtil.styleBody(
-                              isHeavy: true),
+                              isHeavy: true).copyWith(
+                                color: CustomLib.theme == ThemeMode.dark
+                                  ? const Color(0xffBDBDBD)
+                                  : const Color(0xffBDBDBD)),
                           hintText: widget.hintText ?? '',
                           fillColor: CustomLib.theme == ThemeMode.dark
                                   ? const Color(0xff202020)
