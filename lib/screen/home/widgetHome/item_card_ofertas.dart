@@ -17,7 +17,7 @@ class _ItemCardOfertasState extends State<ItemCardOfertas> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const AppText(text: '#EspecialParaVocê', style: AppTextStyleType.subtitle),
+          const CustomTextSubheadline('#EspecialParaVocê'),
           const SizedBox(height: 8),
           SizedBox(
             height: 156,

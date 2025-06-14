@@ -38,7 +38,7 @@ class _TelaEderecoState extends State<TelaEdereco> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const AppText(text: 'Edereço Priniapl', style: AppTextStyleType.bodyLarge),
+            const CustomTextBody('Edereço Priniapl'),
             CustomCard(
               margin: EdgeInsets.zero,
               type: CardType.primary, 
@@ -49,8 +49,8 @@ class _TelaEderecoState extends State<TelaEdereco> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AppText(text: 'R. Padre Chico', style: AppTextStyleType.bodyStrong),
-                        AppText(text: 'Pompeia - Cond. Viena apart 1801 - São Paulo - Sp', style: AppTextStyleType.body, isNotHeavy: true),
+                        CustomTextBodyStrong('R. Padre Chico'),
+                        CustomTextBody('Pompeia - Cond. Viena apart 1801 - São Paulo - Sp', isHeavy: false),
                       ],
                     ),
                   ),
@@ -148,17 +148,9 @@ class _TelaEderecoState extends State<TelaEdereco> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const AppText(
-                  text: 'Excluir Endereço',
-                  style: AppTextStyleType.subtitle,
-                ),
+                const CustomTextSubheadline('Excluir Endereço'),
                 const SizedBox(height: 12),
-                const AppText(
-                  text: 'Deseja realmente excluir esse endereço?',
-                  style: AppTextStyleType.bodyLarge,
-                  textAlign: TextAlign.center,
-                  isNotHeavy: true,
-                ),
+                const CustomTextBody('Deseja realmente excluir esse endereço?', isHeavy: false, textAlign: TextAlign.center),
                 const SizedBox(height: 32),
                 // Botão Avaliar
                 CustomButton(

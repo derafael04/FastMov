@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
         bottomSheetTheme: const BottomSheetThemeData(backgroundColor: Colors.transparent),
         bottomAppBarTheme: const BottomAppBarTheme(color: Colors.transparent),
         shadowColor: const Color(0xff90949A),
-        dialogTheme: DialogTheme(
+        dialogTheme: DialogThemeData(
             shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         )),

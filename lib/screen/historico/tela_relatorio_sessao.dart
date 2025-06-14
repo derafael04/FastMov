@@ -30,13 +30,13 @@ class TelaRelatorioSessao extends StatelessWidget {
                 body: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    AppText(text: 'Atendimento', style: AppTextStyleType.semiBold),
+                    CustomTextBodyStrong('Atendimento'),
                     SizedBox(height: 24),
-                    AppText(text: 'Procedimento', style: AppTextStyleType.body),
-                    AppText(text: 'Liberação Miofascial', style: AppTextStyleType.label),
+                    CustomTextBody('Procedimento'),
+                    CustomTextCaption1('Liberação Miofascial'),
                     SizedBox(height: 16),
-                    AppText(text: 'Observação', style: AppTextStyleType.body),
-                    AppText(text: 'Sit at, Nam in vel sit Lorem tincidunt Praesent efficitur. hendrerit lorem. nisi faucibus odio ipsum id elementum volutpat quis Quisque luctus laoreet lacus, Nunc dui turpis ipsum amet, placerat ex. elit. felis, sollicitudin. eget consectetur non ', style: AppTextStyleType.label),
+                    CustomTextBody('Observação'),
+                    CustomTextCaption1('Sit at, Nam in vel sit Lorem tincidunt Praesent efficitur. hendrerit lorem. nisi faucibus odio ipsum id elementum volutpat quis Quisque luctus laoreet lacus, Nunc dui turpis ipsum amet, placerat ex. elit. felis, sollicitudin. eget consectetur non '),
                   ],
                 )
               ),
@@ -48,7 +48,7 @@ class TelaRelatorioSessao extends StatelessWidget {
                 body: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const AppText(text: 'Atendimento', style: AppTextStyleType.semiBold),
+                    const CustomTextSubheadline('Atendimento'),
                     const SizedBox(height: 24),
                     ListView.separated(
                       shrinkWrap: true,
@@ -78,8 +78,8 @@ class TelaRelatorioSessao extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AppText(text: titulo, style: AppTextStyleType.body),
-              AppText(text: texto, style: AppTextStyleType.label),
+              CustomTextBody(titulo),
+              CustomTextCaption1(texto),
             ],
           ),
         ),

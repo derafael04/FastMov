@@ -2,6 +2,7 @@ import 'package:fastmov/widget/custom_app_text.dart';
 import 'package:fastmov/widget/custom_button.dart';
 import 'package:fastmov/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:heroicons/heroicons.dart';
 
 class TelaCadastroSenha extends StatefulWidget {
   final PageController pageController;
@@ -31,29 +32,37 @@ class _TelaCadastroSenhaState extends State<TelaCadastroSenha> {
           },
         ),
       ),
-      body: const Column(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AppText(
-            text: 'Email e Senha',
-            style: AppTextStyleType.title,
-          ),
-          SizedBox(height: 24),
-          AppText(
-            text: 'Digite seu e-mail para se cadastrar e sua senha',
-            style: AppTextStyleType.bodyLarge,
-          ),
-          SizedBox(height: 24),
-          CustomTextField(hintText: 'Email'),
-          SizedBox(height: 10),
+          const CustomTextTitle1('Email e Senha'),
+          const SizedBox(height: 24),
+          const CustomTextBody('Digite seu e-mail para se cadastrar e sua senha'),
+          const SizedBox(height: 24),
+          const CustomTextField(hintText: 'Email'),
+          const SizedBox(height: 10),
           CustomTextField(
             hintText: 'Senha',
-            isPassword: true,
+            obscureText: obscureText,
+            suffixIcon: InkWell(
+              onTap: () {
+                setState(() {
+                  obscureText = !obscureText;
+                });
+              },
+              child: HeroIcon(obscureText ? HeroIcons.eye : HeroIcons.eyeSlash, size: 20, color: Colors.black54)),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           CustomTextField(
             hintText: 'Confirmar senha',
-            isPassword: true,
+            obscureText: obscureTextConfirm,
+            suffixIcon: InkWell(
+              onTap: () {
+                setState(() {
+                  obscureTextConfirm = !obscureTextConfirm;
+                });
+              },
+              child: HeroIcon(obscureTextConfirm ? HeroIcons.eye : HeroIcons.eyeSlash, size: 20, color: Colors.black54)),
           ),
         ],
       ),

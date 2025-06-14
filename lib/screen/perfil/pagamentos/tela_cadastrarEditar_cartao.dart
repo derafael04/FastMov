@@ -52,14 +52,14 @@ class _TelaCadastrareditarCartaoState extends State<TelaCadastrareditarCartao> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  AppText(text: nomeController.text.isNotEmpty ? nomeController.text : 'Nome Impresso', style: AppTextStyleType.bodyLarge, color: Colors.white),
+                  CustomTextBody(nomeController.text.isNotEmpty ? nomeController.text : 'Nome Impresso', color: Colors.white),
                   const SizedBox(height: 16),
-                  AppText(text: numeroController.text.isNotEmpty ? numeroController.text : '0000 0000 0000 0000', style: AppTextStyleType.title, color: Colors.white),
+                  CustomTextTitle1(numeroController.text.isNotEmpty ? numeroController.text : '0000 0000 0000 0000', color: Colors.white),
                   const SizedBox(height: 32),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      AppText(text: cvvController.text.isNotEmpty ? cvvController.text : 'cvv', style: AppTextStyleType.bodyStrong, color: Colors.white),
+                      CustomTextBodyStrong(cvvController.text.isNotEmpty ? cvvController.text : 'cvv', color: Colors.white),
                       widget.editar
                       ? SizedBox(
                           height: 32,
@@ -73,15 +73,15 @@ class _TelaCadastrareditarCartaoState extends State<TelaCadastrareditarCartao> {
               ),
             ),
             const SizedBox(height: 32),
-            CustomTextField(hintText: 'Número do cartão*', controller: numeroController, onChanged: (p0) => setState(() {})),
+            CustomTextField(hintText: 'Número do cartão*', controlller: numeroController, onChanged: (p0) => setState(() {})),
             const SizedBox(height: 16),
-            CustomTextField(hintText: 'Nome no cartão*', controller: nomeController, onChanged: (p0) => setState(() {})),
+            CustomTextField(hintText: 'Nome no cartão*', controlller: nomeController, onChanged: (p0) => setState(() {})),
             const SizedBox(height: 16),
             Row(
               children: [
                 const Expanded(child: CustomTextField(hintText: 'Vencimento*')),
                 const SizedBox(width: 12),
-                Expanded(child: CustomTextField(hintText: 'CVV*', controller: cvvController, onChanged: (p0) => setState(() {}))),
+                Expanded(child: CustomTextField(hintText: 'CVV*', controlller: cvvController, onChanged: (p0) => setState(() {}))),
               ],
             ),
             const SizedBox(height: 16),

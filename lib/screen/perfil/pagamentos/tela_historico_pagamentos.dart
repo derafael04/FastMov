@@ -57,13 +57,13 @@ class _TelaHistoricoPagamentosState extends State<TelaHistoricoPagamentos> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AppText(text: title, style: AppTextStyleType.bodyStrong),
-              AppText(text: subtitle, style: AppTextStyleType.label, isNotHeavy: true),
-              AppText(text: data, style: AppTextStyleType.label, isNotHeavy: true),
+              CustomTextBodyStrong(title),
+              CustomTextCaption1(subtitle, isHeavy: false),
+              CustomTextCaption1(data, isHeavy: false),
             ],
           ),
         ),
-        AppText(text: valor, style: AppTextStyleType.bodyStrong),
+        CustomTextBodyStrong(valor),
       ],
     );
   }

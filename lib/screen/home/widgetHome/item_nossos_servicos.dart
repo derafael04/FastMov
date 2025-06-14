@@ -40,7 +40,7 @@ class _ItemNossosServicosState extends State<ItemNossosServicos> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const AppText(text: '#NossosServiços', style: AppTextStyleType.subtitle),
+          const CustomTextSubheadline('#NossosServiços'),
           const SizedBox(height: 12),
           SizedBox(
             height: 156,
@@ -70,7 +70,7 @@ class _ItemNossosServicosState extends State<ItemNossosServicos> {
         const SizedBox(height: 8),
         SizedBox(
           width: 100,
-          child: AppText(text: titulo, style: AppTextStyleType.bodyStrong, textAlign: TextAlign.center,))
+          child: CustomTextBodyStrong(titulo, textAlign: TextAlign.center,))
       ],
     );
   }

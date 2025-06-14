@@ -28,15 +28,9 @@ class _TelaCadastroTelefoneState extends State<TelaCadastroTelefone> {
       body: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AppText(
-            text: 'Telefone',
-            style: AppTextStyleType.title,
-          ),
+          CustomTextTitle1('Telefone'),
           SizedBox(height: 24),
-          AppText(
-            text: 'Crie uma conta e aproveite os benefícios que oferecemos para você',
-            style: AppTextStyleType.bodyLarge,
-          ),
+          CustomTextBody('Crie uma conta e aproveite os benefícios que oferecemos para você'),
           SizedBox(height: 24),
           CustomTextField(hintText: 'Número de telefone'),
         ],

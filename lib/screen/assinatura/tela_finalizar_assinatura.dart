@@ -38,9 +38,9 @@ class _TelaFinalizarAssinaturaState extends State<TelaFinalizarAssinatura> {
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const AppText(text: 'Forma de pagamento', style: AppTextStyleType.semiBold),
+                  const CustomTextHeadline('Forma de pagamento'),
                   const SizedBox(height: 4),
-                  const AppText(text: 'Selecione a sua forma de pagamento', style: AppTextStyleType.label),
+                  const CustomTextCaption1('Selecione a sua forma de pagamento'),
                   const SizedBox(height: 16),
                   Row(
                     children: [
@@ -63,8 +63,8 @@ class _TelaFinalizarAssinaturaState extends State<TelaFinalizarAssinatura> {
                       const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          AppText(text: 'Crédito', style: AppTextStyleType.body),
-                          AppText(text: '********** 7124', style: AppTextStyleType.body, isNotHeavy: true),
+                          CustomTextBody('Crédito'),
+                          CustomTextBody('********** 7124', isHeavy: false),
                         ],
                       )
                     ],
@@ -167,7 +167,7 @@ class _TelaFinalizarAssinaturaState extends State<TelaFinalizarAssinatura> {
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const AppText(text: 'Resumo da compra', style: AppTextStyleType.semiBold),
+                  const CustomTextHeadline('Resumo da compra'),
                   const SizedBox(height: 16),
                   _itens(title: 'Assinatura', value: 'R\$ 129,90'),
                   _itens(title: 'Taxa', value: 'R\$ 00,00'),
@@ -176,8 +176,8 @@ class _TelaFinalizarAssinaturaState extends State<TelaFinalizarAssinatura> {
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      AppText(text: 'Valor Total', style: AppTextStyleType.body),
-                      AppText(text: 'R\$ 129,90', style: AppTextStyleType.body),
+                      CustomTextBody('Valor Total'),
+                      CustomTextBody('R\$ 129,90'),
                     ],
                   )
                 ],
@@ -214,22 +214,16 @@ class _TelaFinalizarAssinaturaState extends State<TelaFinalizarAssinatura> {
                         const Stack(
                           children: [
                             Center(
-                              child: Text(
-                                'Resumo da compra',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
+                              child: CustomTextTitle2('Resumo da compra'),
                             ),
                           ],
                         ),
                         const SizedBox(height: 32),
-                        const AppText(text: 'Pagamento', style: AppTextStyleType.semiBold, textAlign: TextAlign.start,),
+                        const CustomTextBodyStrong('Pagamento'),
                         _itens(title: 'Valor Total', value: 'R\$ 129,90'),
                         const SizedBox(height: 16),
-                        const AppText(text: 'Assinatura', style: AppTextStyleType.semiBold, textAlign: TextAlign.start,),
-                        const AppText(text: 'Assinatura mensal', style: AppTextStyleType.label, textAlign: TextAlign.start,),
+                        const CustomTextBodyStrong('Assinatura'),
+                        const CustomTextCaption1('Assinatura mensal'),
                         const SizedBox(height: 96),
                         CustomButton(
                           label: 'Voltar', 
@@ -263,8 +257,8 @@ class _TelaFinalizarAssinaturaState extends State<TelaFinalizarAssinatura> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        AppText(text: title, style: AppTextStyleType.label),
-        AppText(text: value, style: AppTextStyleType.label),
+        CustomTextCaption1(title),
+        CustomTextCaption1(value),
       ],
     );
   }
@@ -291,7 +285,7 @@ class _TelaFinalizarAssinaturaState extends State<TelaFinalizarAssinatura> {
                 const Stack(
                   children: [
                     Center(
-                      child: AppText(text: 'Sucesso', style: AppTextStyleType.title, textAlign: TextAlign.center),
+                      child: CustomTextTitle1('Sucesso', textAlign: TextAlign.center),
                     ),
                   ],
                 ),

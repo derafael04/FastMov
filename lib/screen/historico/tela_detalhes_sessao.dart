@@ -50,13 +50,9 @@ class _TelaDetalhesSessaoState extends State<TelaDetalhesSessao> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            AppText(text: 'Em andamento', style: AppTextStyleType.subtitle),
+                            CustomTextSubheadline('Em andamento'),
                             //SizedBox(height: 4),
-                            AppText(
-                              text: 'Aguardando a sessão iniciar',
-                              style: AppTextStyleType.caption,
-                              isNotHeavy: true,
-                            ),
+                            CustomTextCaption1('Aguardando a sessão iniciar', isHeavy: false),
                           ],
                         ),
                         HeroIcon(HeroIcons.chevronDown, size: 24,)
@@ -104,7 +100,7 @@ class _TelaDetalhesSessaoState extends State<TelaDetalhesSessao> {
                 body: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    AppText(text: 'Resumo da compra', style: AppTextStyleType.subtitle),
+                    CustomTextSubheadline('Resumo da compra'),
                     SizedBox(height: 16),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -113,11 +109,8 @@ class _TelaDetalhesSessaoState extends State<TelaDetalhesSessao> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            AppText(
-                              text: 'Agendamento',
-                              style: AppTextStyleType.semiBold,
-                            ),
-                            AppText(text: '11/08/2014 às 09:00 - 10:00', style: AppTextStyleType.caption, isNotHeavy: true),
+                            CustomTextBodyStrong('Agendamento'),
+                            CustomTextCaption1('11/08/2014 às 09:00 - 10:00', isHeavy: false),
                           ],
                         ),
                         //AppText(text: '14h00 - 15h00', style: AppTextStyleType.caption, isNotHeavy: true),
@@ -134,14 +127,11 @@ class _TelaDetalhesSessaoState extends State<TelaDetalhesSessao> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            AppText(
-                              text: 'Pagamento',
-                              style: AppTextStyleType.semiBold,
-                            ),
-                            AppText(text: 'Valor Total', style: AppTextStyleType.caption, isNotHeavy: true),
+                            CustomTextBodyStrong('Pagamento'),
+                            CustomTextCaption1('Valor Total', isHeavy: false),
                           ],
                         ),
-                        AppText(text: 'R\$180,00', style: AppTextStyleType.caption, isNotHeavy: true),
+                        CustomTextCaption1('R\$180,00', isHeavy: false),
                       ],
                     ),
                     Padding(
@@ -151,12 +141,9 @@ class _TelaDetalhesSessaoState extends State<TelaDetalhesSessao> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AppText(
-                          text: 'Endereço',
-                          style: AppTextStyleType.semiBold,
-                        ),
-                        AppText(text: 'R. Padre Chico', style: AppTextStyleType.body),
-                        AppText(text: 'Pompeia - Cond. Viena apart 1801 - São Paulo - SP', style: AppTextStyleType.caption, isNotHeavy: true),
+                        CustomTextBodyStrong('Endereço'),
+                        CustomTextBody('R. Padre Chico'),
+                        CustomTextCaption1('Pompeia - Cond. Viena apart 1801 - São Paulo - SP', isHeavy: false),
                       ],
                     ),
                   ],
@@ -211,8 +198,8 @@ class _TelaDetalhesSessaoState extends State<TelaDetalhesSessao> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                AppText(text: 'Márcio André', style: AppTextStyleType.bodyStrong),
-                                AppText(text: 'Fisioterapeuta', style: AppTextStyleType.caption, isNotHeavy: true),
+                                CustomTextBodyStrong('Márcio André'),
+                                CustomTextCaption1('Fisioterapeuta', isHeavy: false),
                               ],
                             )
                           ],

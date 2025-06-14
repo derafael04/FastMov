@@ -37,7 +37,7 @@ class ItemCardIndicacao extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const AppText(text: 'Indique e ganhe', style: AppTextStyleType.title, color: Colors.white),
+                    const CustomTextTitle1('Indique e ganhe', color: Colors.white),
                     const SizedBox(height: 4),
                     const Text(
                       'Nova chance de ganhar',
@@ -60,7 +60,7 @@ class ItemCardIndicacao extends StatelessWidget {
                         child: const Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            AppText(text: 'Detalhes', style: AppTextStyleType.bodyStrong),
+                            CustomTextBodyStrong('Detalhes'),
                           ],
                         ),
                       ),

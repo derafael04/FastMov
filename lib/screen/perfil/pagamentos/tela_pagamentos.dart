@@ -61,8 +61,8 @@ class _TelaPagamentosState extends State<TelaPagamentos> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppText(text: title, style: AppTextStyleType.bodyStrong),
-                AppText(text: subtitle, style: AppTextStyleType.body, isNotHeavy: true),
+                CustomTextBodyStrong(title),
+                CustomTextBody(subtitle, isHeavy: false),
               ],
             ),
           ),

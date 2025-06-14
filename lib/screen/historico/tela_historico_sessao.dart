@@ -80,8 +80,8 @@ class _TelaHistoricoSessaoState extends State<TelaHistoricoSessao> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AppText(text: nome, style: AppTextStyleType.bodyLarge),
-                      AppText(text: especiallizacao, style: AppTextStyleType.body, isNotHeavy: true),
+                      CustomTextBody(nome),
+                      CustomTextBody(especiallizacao, isHeavy: false),
                     ],
                   )
                 ],
@@ -97,7 +97,7 @@ class _TelaHistoricoSessaoState extends State<TelaHistoricoSessao> {
                   children: [
                     HeroIcon(getIconStatus(status), color: Colors.white),
                     const SizedBox(width: 4),
-                    AppText(text: getTextoStatus(status), style: AppTextStyleType.body, color: Colors.white)
+                    CustomTextBody(getTextoStatus(status), color: Colors.white, isHeavy: false)
                   ],
                 )
               ),
@@ -116,14 +116,14 @@ class _TelaHistoricoSessaoState extends State<TelaHistoricoSessao> {
                 children: [
                   const HeroIcon(HeroIcons.calendar, size: 20, color: Color(0xFF9E9E9E),),
                   const SizedBox(width: 4),
-                  AppText(text: data, style: AppTextStyleType.body, isNotHeavy: true)
+                  CustomTextBody(data, isHeavy: false)
                 ],
               ),
               Row(
                 children: [
                   const HeroIcon(HeroIcons.clock, size: 20, color: Color(0xFF9E9E9E),),
                   const SizedBox(width: 4),
-                  AppText(text: hora, style: AppTextStyleType.body, isNotHeavy: true)
+                  CustomTextBody(hora, isHeavy: false)
                 ],
               )
             ],

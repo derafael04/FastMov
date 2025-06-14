@@ -35,8 +35,8 @@ class _TelaAssinaturaState extends State<TelaAssinatura> {
             initialValue: SegmentType.news,
             isStretch: true,
             children: {
-              SegmentType.news: AppText(text: 'Assinatura ativa', style: AppTextStyleType.bodyStrong, color: isSelected != SegmentType.news ? const Color(0xff9E9E9E) : null),
-              SegmentType.active: AppText(text: 'Nova assinatura', style: AppTextStyleType.bodyStrong, color: isSelected != SegmentType.active ? const Color(0xff9E9E9E) : null),
+              SegmentType.news: CustomTextBodyStrong('Assinatura ativa', color: isSelected != SegmentType.news ? const Color(0xff9E9E9E) : null),
+              SegmentType.active: CustomTextBodyStrong('Nova assinatura', color: isSelected != SegmentType.active ? const Color(0xff9E9E9E) : null),
             },
             innerPadding: const EdgeInsets.all(4),
             decoration: BoxDecoration(

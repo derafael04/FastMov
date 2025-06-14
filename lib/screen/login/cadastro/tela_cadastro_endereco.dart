@@ -35,15 +35,9 @@ class _TelaCadastroEnderecoState extends State<TelaCadastroEndereco> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppText(
-                  text: 'Endereço',
-                  style: AppTextStyleType.title,
-                ),
+                CustomTextTitle1('Endereço'),
                 SizedBox(height: 24),
-                AppText(
-                  text: 'Digite seu endereço para consultas',
-                  style: AppTextStyleType.bodyLarge,
-                ),
+                CustomTextBody('Digite seu endereço para consultas'),
                 SizedBox(height: 24),
                 // Campo Cep
                 CustomTextField(hintText: 'Cep'),

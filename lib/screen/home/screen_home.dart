@@ -68,20 +68,11 @@ class _HomeState extends State<Home> {
           ),
         );
       case 1:
-        return const AppText(
-          text: 'Favoritos',
-          style: AppTextStyleType.bodyLarge
-        );
+        return const CustomTextBody('Favoritos');
       case 2:
-        return const AppText(
-          text: 'Histórico',
-          style: AppTextStyleType.bodyLarge
-        );
+        return const CustomTextBody('Histórico');
       case 3:
-        return const AppText(
-          text: 'Ranking',
-          style: AppTextStyleType.bodyLarge
-        );
+        return const CustomTextBody('Ranking');
       default:
         return Text('FastMov',
           style: GoogleFonts.outfit(

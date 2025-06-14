@@ -21,7 +21,7 @@ class _TelaAjudaState extends State<TelaAjuda> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const AppText(text: 'Artigos mais lidos com frequência', style: AppTextStyleType.subtitle),
+            const CustomTextTitle2('Artigos mais lidos com frequência'),
             const SizedBox(height: 24),
             buildArticle(
               'Como redefinir a senha',
@@ -41,11 +41,11 @@ class _TelaAjudaState extends State<TelaAjuda> {
           children: [
             const Icon(Icons.book_outlined, size: 24),
             const SizedBox(width: 8),
-            AppText(text: title, style: AppTextStyleType.bodyLarge),
+            CustomTextBodyStrong(title)
           ],
         ),
         const SizedBox(height: 8),
-        AppText(text: description, style: AppTextStyleType.caption, overflow: TextOverflow.ellipsis, isNotHeavy: true),
+        CustomTextCaption1(description, isHeavy: false),
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
           child: Divider(

@@ -73,21 +73,21 @@ class _TelaFavoritosState extends State<TelaFavoritos> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AppText(text: nome, style: AppTextStyleType.bodyLarge),
-                      AppText(text: especiallizacao, style: AppTextStyleType.body, isNotHeavy: true),
+                      CustomTextBody(nome),
+                      CustomTextBody(especiallizacao, isHeavy: false),
                       Row(
                         children: [
                           Row(
                             children: [
                               const HeroIcon(HeroIcons.star, size: 14, color: Color(0xffFFCC00), style: HeroIconStyle.solid,),
-                              AppText(text: nota, style: AppTextStyleType.label),
+                              CustomTextCaption1(nota),
                             ],
                           ),
                           const SizedBox(width: 16),
                           Row(
                             children: [
                               const HeroIcon(HeroIcons.mapPin, size: 14,),
-                              AppText(text: distanciaAtendimento, style: AppTextStyleType.label),
+                              CustomTextCaption1(distanciaAtendimento),
                             ],
                           )
                         ],

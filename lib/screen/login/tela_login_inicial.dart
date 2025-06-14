@@ -2,6 +2,7 @@ import 'package:fastmov/widget/custom_button.dart';
 import 'package:fastmov/widget/custom_text_field.dart';
 import 'package:fastmov/widget/social_button.dart';
 import 'package:flutter/material.dart';
+import 'package:heroicons/heroicons.dart';
 
 class TelaLoginInicial extends StatefulWidget {
   const TelaLoginInicial({super.key});
@@ -36,14 +37,21 @@ class _TelaLoginInicialState extends State<TelaLoginInicial> {
           const SizedBox(height: 20),
           CustomTextField(
             hintText: 'Email', 
-            controller: emailController,
+            controlller: emailController,
             onChanged: (p0) {},
           ),
           const SizedBox(height: 10),
           CustomTextField(
             hintText: 'Senha',
-            isPassword: true,
-            controller: passwordController,
+            obscureText: obscureText,
+            suffixIcon: InkWell(
+              onTap: () {
+                setState(() {
+                  obscureText = !obscureText;
+                });
+              },
+              child: HeroIcon(obscureText ? HeroIcons.eye : HeroIcons.eyeSlash, size: 20, color: Colors.black54)),
+            controlller: passwordController,
             onChanged: (p0) {},
           ),
           Align(

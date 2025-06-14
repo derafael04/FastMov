@@ -36,17 +36,17 @@ class _TelaAlterarSenhaState extends State<TelaAlterarSenha> {
           children: [
             CustomTextField(
               hintText: 'Senha atual',
-              controller: controllerSenhaAtual,
+              controlller: controllerSenhaAtual,
               onChanged: (p0) {},
             ),
             CustomTextField(
               hintText: 'Nova senha',
-              controller: controllerNovaSenha,
+              controlller: controllerNovaSenha,
               onChanged: (p0) {},
             ),
             CustomTextField(
               hintText: 'Confirmar nova senha',
-              controller: controllerConfirmarSenha,
+              controlller: controllerConfirmarSenha,
               onChanged: (p0) {},
             ),
             const SizedBox(height: 16),

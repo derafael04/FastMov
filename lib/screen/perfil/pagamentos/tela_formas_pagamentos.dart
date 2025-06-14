@@ -53,8 +53,8 @@ class _TelaFormasPagamentosState extends State<TelaFormasPagamentos> {
                       const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          AppText(text: 'Crédito', style: AppTextStyleType.body),
-                          AppText(text: '********** 7124', style: AppTextStyleType.body, isNotHeavy: true),
+                          CustomTextBody('Crédito'),
+                          CustomTextBody('********** 7124', isHeavy: false),
                         ],
                       )
                     ],
@@ -153,17 +153,9 @@ class _TelaFormasPagamentosState extends State<TelaFormasPagamentos> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const AppText(
-                  text: 'Excluir Forma de Pagamento',
-                  style: AppTextStyleType.subtitle,
-                ),
+                const CustomTextTitle2('Excluir Forma de Pagamento'),
                 const SizedBox(height: 12),
-                const AppText(
-                  text: 'Deseja realmente excluir esse forma de pagamento?',
-                  style: AppTextStyleType.bodyLarge,
-                  textAlign: TextAlign.center,
-                  isNotHeavy: true,
-                ),
+                const CustomTextBody('Deseja realmente excluir esse forma de pagamento?', isHeavy: false, textAlign: TextAlign.center),
                 const SizedBox(height: 32),
                 // Botão Avaliar
                 CustomButton(

@@ -83,7 +83,7 @@ class _TelaPerfilState extends State<TelaPerfil> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const AppText(text: 'Alterar Senha', style: AppTextStyleType.subtitle),
+                    const CustomTextTitle2('Alterar Senha'),
                     IconButton(
                       onPressed: () {
                         Navigator.of(context).pushNamed('/telaAlterarSenha');
@@ -110,8 +110,8 @@ class _TelaPerfilState extends State<TelaPerfil> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AppText(text: titulo, style: AppTextStyleType.subtitle),
-              AppText(text: subTexto, style: AppTextStyleType.body, isNotHeavy: true),
+              CustomTextSubheadline(titulo),
+              CustomTextBody(subTexto, isHeavy: false),
             ],
           ),
           const HeroIcon(HeroIcons.pencil, color: Color(0xFF9E9E9E), size: 20,)
@@ -163,7 +163,7 @@ class _TelaPerfilState extends State<TelaPerfil> {
                   padding: const EdgeInsets.fromLTRB(0, 24, 0, 24),
                   child: CustomTextField(
                     hintText: labelText,
-                    controller: controller,
+                    controlller: controller,
                     onChanged: (p0) {},
                   ),
                 ),

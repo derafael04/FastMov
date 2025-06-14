@@ -77,11 +77,7 @@ class _CadastroAppBarComControleState extends State<CadastroAppBarComControle> {
                         color: primaryColor,
                       ),
                     ),
-                  AppText(
-                    text: widget.title,
-                    style: AppTextStyleType.bodyLarge,
-                    color: primaryColor,
-                  ),
+                  CustomTextBody(widget.title, color: primaryColor),
                   if (widget.onInfoTap != null)
                     Align(
                       alignment: Alignment.centerRight,
@@ -150,11 +146,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                       color: primaryColor,
                     ),
                   ),
-                  AppText(
-                    text: widget.title,
-                    style: AppTextStyleType.bodyLarge,
-                    color: primaryColor,
-                  ),
+                  CustomTextBody(widget.title, color: primaryColor),
                   if (widget.actions != null)
                     Align(
                       alignment: Alignment.centerRight,

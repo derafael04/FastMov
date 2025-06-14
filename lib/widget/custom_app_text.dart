@@ -1,114 +1,298 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-enum AppTextStyleType {
-  display,
-  largeTitle,
-  title,
-  subtitle,
-  bodyLarge,
-  bodyStrong,
+// Enum para os tipos de texto
+enum CustomTextStyleType {
+  display1,
+  display2,
+  display3,
+  title1,
+  title2,
+  headline,
+  subheadline,
   body,
-  caption,
-  semiBold,
-  label
+  bodyStrong,
+  caption1,
 }
 
-class AppText extends StatelessWidget {
-  final String text;
-  final AppTextStyleType style;
-  final TextAlign? textAlign;
-  final Color? color;
-  final int? maxLines;
-  final TextOverflow? overflow;
-  final bool? isNotHeavy;
-
-  const AppText({
-    super.key,
-    required this.text,
-    required this.style,
-    this.textAlign,
-    this.color,
-    this.maxLines,
-    this.overflow,
-    this.isNotHeavy,
-  });
-
-  TextStyle _getTextStyle(BuildContext context) {
-    final defaultColor = Theme.of(context).textTheme.bodyMedium?.color;
-
-    switch (style) {
-      case AppTextStyleType.display:
-        return GoogleFonts.outfit(
-          fontSize: 40,
-          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w700,
-          color: color ?? defaultColor,
-        );
-      case AppTextStyleType.largeTitle:
-        return GoogleFonts.outfit(
-          fontSize: 32,
-          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w600,
-          color: color ?? defaultColor,
-        );
-      case AppTextStyleType.title:
-        return GoogleFonts.outfit(
-          fontSize: 24,
-          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w600,
-          color: color ?? defaultColor,
-        );
-      case AppTextStyleType.subtitle:
-        return GoogleFonts.outfit(
-          fontSize: 20,
-          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w600,
-          color: color ?? defaultColor,
-        );
-      case AppTextStyleType.bodyLarge:
-        return GoogleFonts.outfit(
-          fontSize: 18,
-          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w400,
-          color: color ?? defaultColor,
-        );
-      case AppTextStyleType.bodyStrong:
-        return GoogleFonts.outfit(
-          fontSize: 16,
-          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w600,
-          color: color ?? defaultColor,
-        );
-      case AppTextStyleType.body:
-        return GoogleFonts.outfit(
-          fontSize: 16,
-          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w400,
-          color: color ?? defaultColor,
-        );
-      case AppTextStyleType.caption:
-        return GoogleFonts.outfit(
-          fontSize: 14,
-          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w400,
-          color: color ?? defaultColor,
-        );
-      case AppTextStyleType.semiBold:
-        return GoogleFonts.outfit(
-          fontSize: 18,
-          fontWeight: (isNotHeavy ?? false) ? FontWeight.w200 : FontWeight.w600,
-          color: color ?? defaultColor,
-        );
-      case AppTextStyleType.label:
-        return GoogleFonts.outfit(
-          fontSize: 12,
-          fontWeight: (isNotHeavy ?? false) ? FontWeight.w100 : FontWeight.w200,
-          color: color ?? defaultColor,
-        );
+class CustomTextUtil {
+  static Color _getColor(bool ePrimario) {
+    final isLight = CustomLib.theme == ThemeMode.light;
+    if (isLight) {
+      return ePrimario ? const Color(0xff2f2f2f) : const Color(0xff555555);
+    } else {
+      return ePrimario ? const Color(0xffF5F5F5) : const Color(0xffB3B3B3);
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
+  static TextStyle styleDisplay1({required bool isHeavy}) =>
+      GoogleFonts.dmSans(
+        fontSize: 48,
+        fontWeight: isHeavy ? FontWeight.w700 : FontWeight.w600,
+        color: _getColor(isHeavy),
+      );
+  static TextStyle styleDisplay2({required bool isHeavy}) =>
+      GoogleFonts.dmSans(
+        fontSize: 40,
+        fontWeight: isHeavy ? FontWeight.w700 : FontWeight.w500,
+        color: _getColor(isHeavy),
+      );
+  static TextStyle styleDisplay3({required bool isHeavy}) =>
+      GoogleFonts.dmSans(
+        fontSize: 32,
+        fontWeight: isHeavy ? FontWeight.w600 : FontWeight.w500,
+        color: _getColor(isHeavy),
+      );
+  static TextStyle styleTitle1({required bool isHeavy}) =>
+      GoogleFonts.dmSans(
+        fontSize: 24,
+        fontWeight: isHeavy ? FontWeight.w700 : FontWeight.w400,
+        color: _getColor(isHeavy),
+      );
+  static TextStyle styleTitle2({required bool isHeavy}) =>
+      GoogleFonts.dmSans(
+        fontSize: 20,
+        fontWeight: isHeavy ? FontWeight.w700 : FontWeight.w400,
+        color: _getColor(isHeavy),
+      );
+  static TextStyle styleHeadline({required bool isHeavy}) =>
+      GoogleFonts.dmSans(
+        fontSize: 16,
+        fontWeight: isHeavy ? FontWeight.w600 : FontWeight.w400,
+        color: _getColor(isHeavy),
+      );
+  static TextStyle styleSubheadline({required bool isHeavy}) =>
+      GoogleFonts.dmSans(
+        fontSize: 14,
+        fontWeight: isHeavy ? FontWeight.w600 : FontWeight.w400,
+        color: _getColor(isHeavy),
+      );
+  static TextStyle styleBody({required bool isHeavy}) =>
+      GoogleFonts.dmSans(
+        fontSize: 14,
+        fontWeight: isHeavy ? FontWeight.w700 : FontWeight.w400,
+        color: _getColor(isHeavy),
+      );
+  static TextStyle styleBodyStrong({required bool isHeavy}) =>
+      GoogleFonts.dmSans(
+        fontSize: 16,
+        fontWeight: isHeavy ? FontWeight.w600 : FontWeight.w400,
+        color: _getColor(isHeavy),
+      );
+  static TextStyle styleCaption1({required bool isHeavy}) =>
+      GoogleFonts.dmSans(
+        fontSize: 12,
+        fontWeight: isHeavy ? FontWeight.w600 : FontWeight.w400,
+        color: _getColor(isHeavy),
+      );
+}
+
+abstract class BaseCustomTextBuild extends StatelessWidget {
+  final String? data;
+  final TextAlign? textAlign;
+  final TextOverflow? overflow;
+  final Color? color;
+  final int? maxLines;
+  final bool? isHeavy;
+
+  const BaseCustomTextBuild(
+    this.data,
+    this.textAlign,
+    this.overflow,
+    this.color,
+    this.maxLines,
+    this.isHeavy,
+    {super.key}
+  );
+
+  TextStyle resolveTextStyle(TextStyle Function({required bool isHeavy}) styleFn, BuildContext context) {
+    return styleFn(isHeavy: isHeavy ?? true);
+  }
+
+  Widget buildText(BuildContext context, {required TextStyle defaultTextStyle}) {
     return Text(
-      text,
-      style: _getTextStyle(context),
+      data ?? '',
+      style: defaultTextStyle,
       textAlign: textAlign,
       maxLines: maxLines,
       overflow: overflow,
     );
+  }
+}
+
+class CustomTextDisplay1 extends BaseCustomTextBuild {
+  const CustomTextDisplay1(
+    String data, {
+    TextAlign? textAlign,
+    TextOverflow? overflow,
+    Color? color,
+    int? maxLines,
+    bool? isHeavy = true,
+    Key? key,
+  }) : super(data, textAlign, overflow, color, maxLines, isHeavy, key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return buildText(context, defaultTextStyle: resolveTextStyle(CustomTextUtil.styleDisplay1, context));
+  }
+}
+
+class CustomTextDisplay2 extends BaseCustomTextBuild {
+  const CustomTextDisplay2(
+    String data, {
+    TextAlign? textAlign,
+    TextOverflow? overflow,
+    Color? color,
+    int? maxLines,
+    bool? isHeavy = true,
+    Key? key,
+  }) : super(data, textAlign, overflow, color, maxLines, isHeavy, key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return buildText(context, defaultTextStyle: resolveTextStyle(CustomTextUtil.styleDisplay2, context));
+  }
+}
+
+class CustomTextDisplay3 extends BaseCustomTextBuild {
+  const CustomTextDisplay3(
+    String data, {
+    TextAlign? textAlign,
+    TextOverflow? overflow,
+    Color? color,
+    int? maxLines,
+    bool? isHeavy = true,
+    Key? key,
+  }) : super(data, textAlign, overflow, color, maxLines, isHeavy, key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return buildText(context, defaultTextStyle: resolveTextStyle(CustomTextUtil.styleDisplay3, context));
+  }
+}
+
+class CustomTextTitle1 extends BaseCustomTextBuild {
+  const CustomTextTitle1(
+    String data, {
+    TextAlign? textAlign,
+    TextOverflow? overflow,
+    Color? color,
+    int? maxLines,
+    bool? isHeavy = true,
+    Key? key,
+  }) : super(data, textAlign, overflow, color, maxLines, isHeavy, key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return buildText(context, defaultTextStyle: resolveTextStyle(CustomTextUtil.styleTitle1, context));
+  }
+}
+
+class CustomTextTitle2 extends BaseCustomTextBuild {
+  const CustomTextTitle2(
+    String data, {
+    TextAlign? textAlign,
+    TextOverflow? overflow,
+    Color? color,
+    int? maxLines,
+    bool? isHeavy = true,
+    Key? key,
+  }) : super(data, textAlign, overflow, color, maxLines, isHeavy, key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return buildText(context, defaultTextStyle: resolveTextStyle(CustomTextUtil.styleTitle2, context));
+  }
+}
+
+class CustomTextHeadline extends BaseCustomTextBuild {
+  const CustomTextHeadline(
+    String data, {
+    TextAlign? textAlign,
+    TextOverflow? overflow,
+    Color? color,
+    int? maxLines,
+    bool? isHeavy = true,
+    Key? key,
+  }) : super(data, textAlign, overflow, color, maxLines, isHeavy, key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return buildText(context, defaultTextStyle: resolveTextStyle(CustomTextUtil.styleHeadline, context));
+  }
+}
+
+class CustomTextSubheadline extends BaseCustomTextBuild {
+  const CustomTextSubheadline(
+    String data, {
+    TextAlign? textAlign,
+    TextOverflow? overflow,
+    Color? color,
+    int? maxLines,
+    bool? isHeavy = true,
+    Key? key,
+  }) : super(data, textAlign, overflow, color, maxLines, isHeavy, key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return buildText(context, defaultTextStyle: resolveTextStyle(CustomTextUtil.styleSubheadline, context));
+  }
+}
+
+class CustomTextBody extends BaseCustomTextBuild {
+  const CustomTextBody(
+    String data, {
+    TextAlign? textAlign,
+    TextOverflow? overflow,
+    Color? color,
+    int? maxLines,
+    bool? isHeavy = false,
+    Key? key,
+  }) : super(data, textAlign, overflow, color, maxLines, isHeavy, key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return buildText(context, defaultTextStyle: resolveTextStyle(CustomTextUtil.styleBody, context));
+  }
+}
+
+class CustomTextBodyStrong extends BaseCustomTextBuild {
+  const CustomTextBodyStrong(
+    String data, {
+    TextAlign? textAlign,
+    TextOverflow? overflow,
+    Color? color,
+    int? maxLines,
+    bool? isHeavy = true,
+    Key? key,
+  }) : super(data, textAlign, overflow, color, maxLines, isHeavy, key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return buildText(context, defaultTextStyle: resolveTextStyle(CustomTextUtil.styleBodyStrong, context));
+  }
+}
+
+class CustomTextCaption1 extends BaseCustomTextBuild {
+  const CustomTextCaption1(
+    String data, {
+    TextAlign? textAlign,
+    TextOverflow? overflow,
+    Color? color,
+    int? maxLines,
+    bool? isHeavy = false,
+    Key? key,
+  }) : super(data, textAlign, overflow, color, maxLines, isHeavy, key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return buildText(context, defaultTextStyle: resolveTextStyle(CustomTextUtil.styleCaption1, context));
+  }
+}
+
+class CustomLib {
+  static ThemeMode? theme;
+  static void setTheme(ThemeMode theme) {
+    CustomLib.theme = theme;
   }
 }

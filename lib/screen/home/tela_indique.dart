@@ -45,9 +45,9 @@ class _TelaIndiqueState extends State<TelaIndique> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   spacing: 16,
                   children: [
-                    AppText(text: 'Convide seus amigos e ganhe recompensas', style: AppTextStyleType.title, textAlign: TextAlign.start,),
-                    AppText(text: 'Compartilhe seu link de indicação com amigos. Quando eles se cadastrarem e concluírem a primeira compra, vocês dois ganham uma recompensa!', style: AppTextStyleType.caption, textAlign: TextAlign.start, color: Color(0xff9E9E9E),), 
-                    AppText(text: 'Como funciona', style: AppTextStyleType.subtitle, textAlign: TextAlign.start),
+                    CustomTextTitle1('Convide seus amigos e ganhe recompensas', textAlign: TextAlign.start),
+                    CustomTextCaption1('Compartilhe seu link de indicação com amigos. Quando eles se cadastrarem e concluírem a primeira compra, vocês dois ganham uma recompensa!', textAlign: TextAlign.start, color: Color(0xff9E9E9E)),
+                    CustomTextSubheadline('Como funciona', textAlign: TextAlign.start),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

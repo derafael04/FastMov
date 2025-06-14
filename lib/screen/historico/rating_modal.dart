@@ -30,17 +30,9 @@ class _RatingModalState extends State<RatingModal> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const AppText(
-              text: 'Avalie sua consulta',
-              style: AppTextStyleType.subtitle,
-            ),
+            const CustomTextSubheadline('Avalie sua consulta'),
             const SizedBox(height: 12),
-            const AppText(
-              text: 'Qual sua nota para o seu atendimento com o profissional?',
-              style: AppTextStyleType.bodyLarge,
-              textAlign: TextAlign.center,
-              isNotHeavy: true,
-            ),
+            const CustomTextBody('Qual sua nota para o seu atendimento com o profissional?', isHeavy: false, textAlign: TextAlign.center),
 
             // Estrelas
             Padding(

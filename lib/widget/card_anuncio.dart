@@ -61,7 +61,7 @@ class CardAnuncio extends StatelessWidget {
                   child: const Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      AppText(text: 'Comprar', style: AppTextStyleType.bodyStrong),
+                      CustomTextBodyStrong('Comprar'),
                       // SizedBox(width: 6),
                       // Icon(Icons.chevron_right, size: 16, color: Colors.black),
                     ],
