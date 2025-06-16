@@ -60,7 +60,7 @@ class ItemCardIndicacao extends StatelessWidget {
                         child: const Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            CustomTextBodyStrong('Detalhes'),
+                            CustomTextSubheadline('Detalhes'),
                           ],
                         ),
                       ),
