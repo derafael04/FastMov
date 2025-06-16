@@ -77,7 +77,7 @@ class _CadastroAppBarComControleState extends State<CadastroAppBarComControle> {
                         color: primaryColor,
                       ),
                     ),
-                  CustomTextBody(widget.title, color: primaryColor),
+                  CustomTextBody(widget.title),
                   if (widget.onInfoTap != null)
                     Align(
                       alignment: Alignment.centerRight,

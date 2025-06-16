@@ -1,3 +1,4 @@
+import 'package:fastmov/controller/controller_app.dart';
 import 'package:fastmov/screen/assinatura/tela_assinatura.dart';
 import 'package:fastmov/screen/assinatura/tela_finalizar_assinatura.dart';
 import 'package:fastmov/screen/chat/tela_chat.dart';
@@ -19,24 +20,30 @@ import 'package:fastmov/screen/perfil/tela_alterar_senha.dart';
 import 'package:fastmov/screen/perfil/endereco/tela_edereco.dart';
 import 'package:fastmov/screen/perfil/pagamentos/tela_pagamentos.dart';
 import 'package:fastmov/screen/perfil/tela_perfil.dart';
+import 'package:fastmov/widget/custom_app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting('pt_BR', null);
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeControllerProvider);
+    CustomLib.setTheme(themeMode);
     return MaterialApp(
       title: 'FastMov',
       debugShowCheckedModeBanner: false,
+      darkTheme: ThemeData.dark(),
+      themeMode: themeMode,
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xffF1F1F1),
         cardColor: Colors.white,

@@ -45,6 +45,8 @@ dependencies:
   step_progress_indicator: ^1.0.2
   custom_sliding_segmented_control: ^1.8.5
   lottie: ^3.3.1
+  shared_preferences: ^2.5.3
+  flutter_riverpod: ^2.6.1
 
 dev_dependencies:
   flutter_test:
