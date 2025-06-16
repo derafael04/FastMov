@@ -48,7 +48,11 @@ class _ItemNossosServicosState extends State<ItemNossosServicos> {
               //shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return _creatServiceItens(titulo: servicos[index].titulo, imagem: servicos[index].imagem);
+                return InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/telaCompraSessao');
+                  },
+                  child: _creatServiceItens(titulo: servicos[index].titulo, imagem: servicos[index].imagem));
               },
               separatorBuilder: (context, index) => const SizedBox(width: 8), 
               itemCount: servicos.length
@@ -59,7 +63,7 @@ class _ItemNossosServicosState extends State<ItemNossosServicos> {
     );
   }
 
-  _creatServiceItens({required String titulo, required String imagem}) {
+  Column _creatServiceItens({required String titulo, required String imagem}) {
     return Column(
       children: [
         CircleAvatar(
