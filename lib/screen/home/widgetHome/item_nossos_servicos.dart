@@ -70,7 +70,7 @@ class _ItemNossosServicosState extends State<ItemNossosServicos> {
         const SizedBox(height: 8),
         SizedBox(
           width: 100,
-          child: CustomTextBodyStrong(titulo, textAlign: TextAlign.center,))
+          child: CustomTextBody(titulo, textAlign: TextAlign.center,))
       ],
     );
   }
