@@ -252,13 +252,23 @@ class _TelaCompraSessaoState extends State<TelaCompraSessao> {
               ),
             ),
             const SizedBox(height: 24),
-            CustomButton(
-              label: 'Avançar',
-              type: ButtonType.primary,
-              onPressed: () {},
-            ),
           ],
         ),
+      ),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+            child: CustomButton(
+              label: 'Avançar',
+              type: ButtonType.primary,
+              onPressed: () {
+                Navigator.of(context).pushNamed('/telaFinalizarCompra');
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

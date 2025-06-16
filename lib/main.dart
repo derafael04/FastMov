@@ -3,6 +3,7 @@ import 'package:fastmov/screen/assinatura/tela_assinatura.dart';
 import 'package:fastmov/screen/assinatura/tela_finalizar_assinatura.dart';
 import 'package:fastmov/screen/chat/tela_chat.dart';
 import 'package:fastmov/screen/compra/tela_compra.dart';
+import 'package:fastmov/screen/compra/tela_finalizar_compra.dart';
 import 'package:fastmov/screen/historico/tela_detalhes_profissional.dart';
 import 'package:fastmov/screen/historico/tela_detalhes_sessao.dart';
 import 'package:fastmov/screen/historico/tela_relatorio_sessao.dart';
@@ -91,6 +92,7 @@ class MyApp extends ConsumerWidget {
         '/telaFinalizarAssinatura': (context) => const TelaFinalizarAssinatura(),
         '/telaIndique': (context) => const TelaIndique(),
         '/telaCompraSessao': (context) => const TelaCompraSessao(),
+        '/telaFinalizarCompra': (context) => const TelaFinalizarCompra(),
       },
     );
   }

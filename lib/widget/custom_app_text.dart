@@ -31,65 +31,65 @@ class CustomTextUtil {
     }
   }
 
-  static TextStyle styleDisplay1({required bool isHeavy, BuildContext? context}) =>
+  static TextStyle styleDisplay1({required bool isHeavy, BuildContext? context, Color? color}) =>
       GoogleFonts.dmSans(
         fontSize: 48,
         fontWeight: isHeavy ? FontWeight.w700 : FontWeight.w600,
-        color: _getColor(isHeavy, context),
+        color: color ?? _getColor(isHeavy, context),
       );
-  static TextStyle styleDisplay2({required bool isHeavy, BuildContext? context}) =>
+  static TextStyle styleDisplay2({required bool isHeavy, BuildContext? context, Color? color}) =>
       GoogleFonts.dmSans(
         fontSize: 40,
         fontWeight: isHeavy ? FontWeight.w700 : FontWeight.w500,
-        color: _getColor(isHeavy, context),
+        color: color ?? _getColor(isHeavy, context),
       );
-  static TextStyle styleDisplay3({required bool isHeavy, BuildContext? context}) =>
+  static TextStyle styleDisplay3({required bool isHeavy, BuildContext? context, Color? color}) =>
       GoogleFonts.dmSans(
         fontSize: 32,
         fontWeight: isHeavy ? FontWeight.w600 : FontWeight.w500,
-        color: _getColor(isHeavy, context),
+        color: color ?? _getColor(isHeavy, context),
       );
-  static TextStyle styleTitle1({required bool isHeavy, BuildContext? context}) =>
+  static TextStyle styleTitle1({required bool isHeavy, BuildContext? context, Color? color}) =>
       GoogleFonts.dmSans(
         fontSize: 24,
         fontWeight: isHeavy ? FontWeight.w700 : FontWeight.w400,
-        color: _getColor(isHeavy, context),
+        color: color ?? _getColor(isHeavy, context),
       );
-  static TextStyle styleTitle2({required bool isHeavy, BuildContext? context}) =>
+  static TextStyle styleTitle2({required bool isHeavy, BuildContext? context, Color? color}) =>
       GoogleFonts.dmSans(
         fontSize: 20,
         fontWeight: isHeavy ? FontWeight.w700 : FontWeight.w400,
-        color: _getColor(isHeavy, context),
+        color: color ?? _getColor(isHeavy, context),
       );
-  static TextStyle styleHeadline({required bool isHeavy, BuildContext? context}) =>
+  static TextStyle styleHeadline({required bool isHeavy, BuildContext? context, Color? color}) =>
       GoogleFonts.dmSans(
         fontSize: 16,
         fontWeight: isHeavy ? FontWeight.w600 : FontWeight.w400,
-        color: _getColor(isHeavy, context),
+        color: color ?? _getColor(isHeavy, context),
       );
-  static TextStyle styleSubheadline({required bool isHeavy, BuildContext? context}) =>
+  static TextStyle styleSubheadline({required bool isHeavy, BuildContext? context, Color? color}) =>
       GoogleFonts.dmSans(
         fontSize: 14,
         fontWeight: isHeavy ? FontWeight.w600 : FontWeight.w400,
-        color: _getColor(isHeavy, context),
+        color: color ?? _getColor(isHeavy, context),
       );
-  static TextStyle styleBody({required bool isHeavy, BuildContext? context}) =>
+  static TextStyle styleBody({required bool isHeavy, BuildContext? context, Color? color}) =>
       GoogleFonts.dmSans(
         fontSize: 14,
         fontWeight: isHeavy ? FontWeight.w700 : FontWeight.w400,
-        color: _getColor(isHeavy, context),
+        color: color ?? _getColor(isHeavy, context),
       );
-  static TextStyle styleBodyStrong({required bool isHeavy, BuildContext? context}) =>
+  static TextStyle styleBodyStrong({required bool isHeavy, BuildContext? context, Color? color}) =>
       GoogleFonts.dmSans(
         fontSize: 16,
         fontWeight: isHeavy ? FontWeight.w600 : FontWeight.w400,
-        color: _getColor(isHeavy, context),
+        color: color ?? _getColor(isHeavy, context),
       );
-  static TextStyle styleCaption1({required bool isHeavy, BuildContext? context}) =>
+  static TextStyle styleCaption1({required bool isHeavy, BuildContext? context, Color? color}) =>
       GoogleFonts.dmSans(
         fontSize: 12,
         fontWeight: isHeavy ? FontWeight.w600 : FontWeight.w400,
-        color: _getColor(isHeavy, context),
+        color: color ?? _getColor(isHeavy, context),
       );
 }
 
@@ -111,8 +111,8 @@ abstract class BaseCustomTextBuild extends StatelessWidget {
     {super.key}
   );
 
-  TextStyle resolveTextStyle(TextStyle Function({required bool isHeavy, BuildContext? context}) styleFn, BuildContext context) {
-    return styleFn(isHeavy: isHeavy ?? true, context: context);
+  TextStyle resolveTextStyle(TextStyle Function({required bool isHeavy, BuildContext? context, Color? color}) styleFn, BuildContext context) {
+    return styleFn(isHeavy: isHeavy ?? true, context: context, color: color);
   }
 
   Widget buildText(BuildContext context, {required TextStyle defaultTextStyle}) {
