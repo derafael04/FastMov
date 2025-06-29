@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:fastmov/screen/favoritos/tela_favoritos.dart';
 import 'package:fastmov/screen/gameficacao/tela_gameficacao.dart';
 import 'package:fastmov/screen/historico/tela_historico_sessao.dart';
@@ -89,6 +91,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: const Color(0xFFF1F1F1),
+      extendBody: true,
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: _getTitle(_selectedIndex),
@@ -113,57 +116,70 @@ class _HomeState extends State<Home> {
       drawer: const CustomDrawer(),
       body: PageView(
         controller: _pageController,
+        physics: const NeverScrollableScrollPhysics(),
         onPageChanged: (index) => setState(() => _selectedIndex = index),
         children: _pages,
       ),
       bottomNavigationBar: Container(
         margin: const EdgeInsets.all(16),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        decoration: BoxDecoration(
-          color: Colors.white,
+        child: ClipRRect(
           borderRadius: BorderRadius.circular(40),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.05),
-              blurRadius: 10,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(4, (index) {
-            final isSelected = _selectedIndex == index;
-            return GestureDetector(
-              onTap: () {
-                _pageController.jumpToPage(index);
-              },
-              behavior: HitTestBehavior.opaque,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  HeroIcon(
-                    _getIcon(index),
-                    key: ValueKey('icon_$index$isSelected'),
-                    color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
-                    size: 24,
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.2),
+                borderRadius: BorderRadius.circular(40),
+                border: Border.all(
+                  color: Colors.white.withValues(alpha: 0.3),
+                  width: 1,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.1),
+                    blurRadius: 20,
+                    offset: const Offset(0, 8),
                   ),
-                  const SizedBox(height: 2),
-                  isSelected
-                  ? Text(
-                      _getLabel(index),
-                      key: ValueKey('label_$index'),
-                      style: const TextStyle(
-                        color: Color(0xFF1C1C43),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    )
-                  : const SizedBox(height: 0),
                 ],
               ),
-            );
-          }),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: List.generate(4, (index) {
+                  final isSelected = _selectedIndex == index;
+                  return GestureDetector(
+                    onTap: () {
+                      _pageController.jumpToPage(index);
+                    },
+                    behavior: HitTestBehavior.opaque,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        HeroIcon(
+                          _getIcon(index),
+                          key: ValueKey('icon_$index$isSelected'),
+                          color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
+                          size: 24,
+                        ),
+                        const SizedBox(height: 2),
+                        isSelected
+                        ? Text(
+                            _getLabel(index),
+                            key: ValueKey('label_$index'),
+                            style: const TextStyle(
+                              color: Color(0xFF1C1C43),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          )
+                        : const SizedBox(height: 0),
+                      ],
+                    ),
+                  );
+                }),
+              ),
+            ),
+          ),
         ),
       ),
     );
