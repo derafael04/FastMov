@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'package:fastmov/core/di/injection_container.dart' as di;
+
 import 'package:fastmov/presentation/stores/auth/auth_store.dart';
 import 'package:fastmov/presentation/stores/theme/theme_store.dart';
 import 'package:fastmov/screen/login/tela_login_inicial.dart';
@@ -40,12 +40,12 @@ void main() {
 
       // act
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: CustomButton(
               label: buttonLabel,
               type: ButtonType.primary,
-              onPressed: () {},
+              onPressed: null,
             ),
           ),
         ),

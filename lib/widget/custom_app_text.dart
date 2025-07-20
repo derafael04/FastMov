@@ -17,13 +17,13 @@ enum CustomTextStyleType {
 
 class CustomTextUtil {
   static Color _getColor(bool ePrimario, [BuildContext? context]) {
-    ThemeMode? themeMode = CustomLib.theme;
-    Brightness? platformBrightness;
-    if (themeMode == ThemeMode.system && context != null) {
-      platformBrightness = MediaQuery.of(context).platformBrightness;
-    }
-    final isLight = (themeMode == ThemeMode.light) ||
-        (themeMode == ThemeMode.system && platformBrightness == Brightness.light);
+    // Usa o tema do contexto atual em vez da variável estática
+    final brightness = context != null
+        ? Theme.of(context).brightness
+        : Brightness.light;
+
+    final isLight = brightness == Brightness.light;
+
     if (isLight) {
       return ePrimario ? const Color(0xff2f2f2f) : const Color(0xff555555);
     } else {
