@@ -1,0 +1,9 @@
+targets:
+  $default:
+    builders:
+      mobx_codegen|mobx_generator:
+        options:
+          # Configurações para geração de código MobX
+          null_safety: true
+        generate_for:
+          - lib/presentation/stores/**/*.dart
