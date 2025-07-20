@@ -1,96 +1,99 @@
-# 🛣️ Guia de Rotas - FastMov
+# 🛣️ Guia de Rotas - FastMov (Simplificado)
 
-## 🎯 Sistema de Rotas Implementado
+## 🎯 Sistema de Rotas Tradicional
 
-O projeto agora possui um **sistema de rotas centralizado e organizado** com:
+O projeto usa o **sistema tradicional de rotas do Flutter** de forma organizada:
 
-### ✅ **Funcionalidades Implementadas:**
-- **Rotas centralizadas** em `AppRoutes`
-- **Gerador de rotas** automático
-- **Navegação sem contexto** via `NavigationHelper`
-- **Proteção de rotas** com `AuthGuard`
-- **Transições personalizadas**
-- **Tratamento de erros** para rotas não encontradas
+### ✅ **Funcionalidades:**
+- **Rotas definidas no main.dart** (padrão Flutter)
+- **Constantes centralizadas** em `Routes`
+- **Navegação simples** com `Navigator`
+- **Fácil manutenção** e compreensão
 
-## 📁 Estrutura de Arquivos
+## 📁 Estrutura Simplificada
 
 ```
-lib/core/routes/
-├── app_routes.dart          # Definição de todas as rotas
-├── route_generator.dart     # Gerador de rotas
-├── navigation_helper.dart   # Helper para navegação
-└── auth_guard.dart         # Proteção de rotas
+lib/
+├── core/constants/routes.dart   # Constantes das rotas
+└── main.dart                   # Definição das rotas
 ```
 
 ## 🗺️ Rotas Disponíveis
 
 ### **Autenticação**
 ```dart
-AppRoutes.login              // '/login'
-AppRoutes.register           // '/register'
-AppRoutes.forgotPassword     // '/forgot-password'
-AppRoutes.pinValidation      // '/pin-validation'
+Routes.login              // '/login'
+Routes.register           // '/register'
+Routes.forgotPassword     // '/forgot-password'
+Routes.pinValidation      // '/pin-validation'
 ```
 
 ### **Principais**
 ```dart
-AppRoutes.home               // '/home'
-AppRoutes.introduction       // '/introduction'
-AppRoutes.initial            // '/initial'
+Routes.home               // '/home'
+Routes.introduction       // '/introduction'
+Routes.initial            // '/initial'
 ```
 
 ### **Perfil**
 ```dart
-AppRoutes.profile            // '/profile'
-AppRoutes.changePassword     // '/change-password'
-AppRoutes.address            // '/address'
-AppRoutes.payments           // '/payments'
-AppRoutes.paymentHistory     // '/payment-history'
-AppRoutes.paymentMethods     // '/payment-methods'
+Routes.profile            // '/profile'
+Routes.changePassword     // '/change-password'
+Routes.address            // '/address'
+Routes.payments           // '/payments'
+Routes.paymentHistory     // '/payment-history'
+Routes.paymentMethods     // '/payment-methods'
 ```
 
 ### **Funcionalidades**
 ```dart
-AppRoutes.chat               // '/chat'
-AppRoutes.help               // '/help'
-AppRoutes.helpDetails        // '/help-details'
-AppRoutes.favorites          // '/favorites'
-AppRoutes.gamification       // '/gamification'
-AppRoutes.refer              // '/refer'
+Routes.chat               // '/chat'
+Routes.help               // '/help'
+Routes.favorites          // '/favorites'
+Routes.gamification       // '/gamification'
+Routes.refer              // '/refer'
 ```
 
 ### **Histórico**
 ```dart
-AppRoutes.sessionHistory     // '/session-history'
-AppRoutes.sessionDetails     // '/session-details'
-AppRoutes.sessionReport      // '/session-report'
-AppRoutes.professionalDetails // '/professional-details'
+Routes.sessionHistory     // '/session-history'
+Routes.sessionDetails     // '/session-details'
+Routes.sessionReport      // '/session-report'
+Routes.professionalDetails // '/professional-details'
 ```
 
 ### **Compra e Assinatura**
 ```dart
-AppRoutes.purchase           // '/purchase'
-AppRoutes.finalizePurchase   // '/finalize-purchase'
-AppRoutes.subscription       // '/subscription'
-AppRoutes.finalizeSubscription // '/finalize-subscription'
+Routes.purchase           // '/purchase'
+Routes.finalizePurchase   // '/finalize-purchase'
+Routes.subscription       // '/subscription'
+Routes.finalizeSubscription // '/finalize-subscription'
 ```
 
 ## 🚀 Como Usar
 
 ### 1. **Navegação Básica**
 ```dart
-// Em vez de:
-Navigator.pushNamed(context, '/profile');
+// Navegar para uma nova tela
+Navigator.pushNamed(context, Routes.profile);
 
-// Use:
-NavigationHelper.goToProfile();
+// Navegar e substituir a tela atual
+Navigator.pushReplacementNamed(context, Routes.home);
+
+// Navegar e remover todas as telas anteriores
+Navigator.pushNamedAndRemoveUntil(
+  context,
+  Routes.home,
+  (route) => false,
+);
 ```
 
 ### 2. **Navegação com Argumentos**
 ```dart
 // Passar argumentos
-NavigationHelper.pushNamed(
-  AppRoutes.sessionDetails,
+Navigator.pushNamed(
+  context,
+  Routes.sessionDetails,
   arguments: sessionData,
 );
 
@@ -104,22 +107,17 @@ class SessionDetailsScreen extends StatelessWidget {
 }
 ```
 
-### 3. **Navegação com Substituição**
+### 3. **Voltar para tela anterior**
 ```dart
-// Substitui a tela atual
-NavigationHelper.pushReplacementNamed(AppRoutes.home);
+// Voltar simples
+Navigator.pop(context);
 
-// Remove todas as telas anteriores
-NavigationHelper.goToHome(); // Equivale a pushNamedAndRemoveUntil
-```
+// Voltar com resultado
+Navigator.pop(context, result);
 
-### 4. **Navegação Condicional**
-```dart
-// Verifica autenticação antes de navegar
-if (AuthGuard.isAuthenticated) {
-  NavigationHelper.goToProfile();
-} else {
-  NavigationHelper.goToLogin();
+// Verificar se pode voltar
+if (Navigator.canPop(context)) {
+  Navigator.pop(context);
 }
 ```
 
@@ -344,20 +342,65 @@ testWidgets('should navigate to profile when button is pressed', (tester) async 
 });
 ```
 
-## ✅ Benefícios do Sistema
+## ✅ Benefícios do Sistema Simplificado
 
-1. **Centralização**: Todas as rotas em um lugar
+1. **Simplicidade**: Sistema tradicional do Flutter, fácil de entender
 2. **Type Safety**: Constantes em vez de strings mágicas
-3. **Navegação Simples**: Métodos helper intuitivos
-4. **Proteção**: Rotas protegidas automaticamente
-5. **Manutenibilidade**: Fácil de modificar e estender
-6. **Debugging**: Logs automáticos de navegação
-7. **Tratamento de Erros**: Páginas de erro personalizadas
+3. **Manutenibilidade**: Todas as rotas em um lugar (main.dart)
+4. **Performance**: Sem overhead de sistemas complexos
+5. **Debugging**: Fácil de debugar e modificar
+6. **Padrão Flutter**: Segue as convenções oficiais
 
-## 🚀 Próximos Passos
+## 🔧 Configuração no main.dart
 
-1. **Implementar deep linking** para URLs específicas
-2. **Adicionar animações** personalizadas por rota
-3. **Implementar cache** de rotas visitadas
-4. **Adicionar analytics** de navegação
-5. **Criar rotas dinâmicas** baseadas em permissões
+```dart
+MaterialApp(
+  initialRoute: Routes.login,
+  routes: {
+    Routes.login: (context) => const TelaLoginInicial(),
+    Routes.home: (context) => const Home(),
+    Routes.profile: (context) => const TelaPerfil(),
+    // ... outras rotas
+  },
+)
+```
+
+## 📝 Exemplo Prático Completo
+
+```dart
+// 1. Definir constante (já feito em Routes)
+class Routes {
+  static const String profile = '/profile';
+}
+
+// 2. Configurar no main.dart (já feito)
+routes: {
+  Routes.profile: (context) => const TelaPerfil(),
+}
+
+// 3. Usar na navegação
+ElevatedButton(
+  onPressed: () {
+    Navigator.pushNamed(context, Routes.profile);
+  },
+  child: Text('Ir para Perfil'),
+)
+
+// 4. Receber argumentos (se necessário)
+class TelaPerfil extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)?.settings.arguments;
+    return Scaffold(/* ... */);
+  }
+}
+```
+
+## 🎯 Resultado Final
+
+✅ **Sistema simples e eficiente**
+✅ **32 rotas organizadas**
+✅ **Constantes centralizadas**
+✅ **Navegação tradicional do Flutter**
+✅ **Fácil manutenção**
+✅ **Performance otimizada**

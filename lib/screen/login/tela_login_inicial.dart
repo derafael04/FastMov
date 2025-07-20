@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:heroicons/heroicons.dart';
 
+import '../../core/constants/routes.dart';
 import '../../core/di/injection_container.dart';
-import '../../core/routes/navigation_helper.dart';
 import '../../presentation/stores/auth/auth_store.dart';
 import '../../widget/custom_button.dart';
 import '../../widget/custom_text_field.dart';
@@ -29,7 +29,7 @@ class _TelaLoginInicialState extends State<TelaLoginInicial> {
   Future<void> _handleLogin() async {
     final success = await authStore.login();
     if (success && mounted) {
-      NavigationHelper.goToHome();
+      Navigator.pushReplacementNamed(context, Routes.home);
     }
   }
 
@@ -114,7 +114,7 @@ class _TelaLoginInicialState extends State<TelaLoginInicial> {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
-                    NavigationHelper.goToForgotPassword();
+                    Navigator.pushNamed(context, Routes.forgotPassword);
                   },
                   child: const Text(
                     'Esqueceu sua senha?',
@@ -157,7 +157,7 @@ class _TelaLoginInicialState extends State<TelaLoginInicial> {
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    NavigationHelper.goToRegister();
+                    Navigator.pushNamed(context, Routes.register);
                   },
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
