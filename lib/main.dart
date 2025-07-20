@@ -3,9 +3,9 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'core/di/injection_container.dart' as di;
+import 'core/routes/app_routes.dart';
+import 'core/routes/route_generator.dart';
 import 'presentation/stores/theme/theme_store.dart';
-import 'screen/login/tela_login_inicial.dart';
-import 'screen/home/screen_home.dart';
 
 
 void main() async {
@@ -28,11 +28,12 @@ class MyApp extends StatelessWidget {
         theme: _buildLightTheme(),
         darkTheme: _buildDarkTheme(),
         themeMode: themeStore.themeMode,
-        initialRoute: '/login',
-        routes: {
-          '/login': (context) => const TelaLoginInicial(),
-          '/home': (context) => const Home(),
-        },
+        navigatorKey: navigatorKey,
+        initialRoute: AppRoutes.login,
+        onGenerateRoute: RouteGenerator.generateRoute,
+        onUnknownRoute: (settings) => RouteGenerator.generateRoute(
+          RouteSettings(name: '/error', arguments: settings.arguments),
+        ),
       ),
     );
   }

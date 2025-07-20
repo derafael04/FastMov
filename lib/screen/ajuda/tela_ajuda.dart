@@ -149,14 +149,14 @@ class _TelaAjudaState extends State<TelaAjuda> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
-        title: 'Ajuda',
+        title: 'Perguntas Frequentes',
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomTextTitle2(faqData.titulo),
+            //CustomTextTitle2(faqData.titulo),
             const SizedBox(height: 24),
             ...faqData.list.map((category) => _buildCategory(context, category)),
           ],
@@ -175,22 +175,16 @@ class _TelaAjudaState extends State<TelaAjuda> {
           padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
           margin: const EdgeInsets.only(bottom: 16.0),
           decoration: BoxDecoration(
-            color: Theme.of(context).brightness == Brightness.dark
-                ? Colors.grey[800]
-                : const Color(0xFF0175C2).withValues(alpha: 0.1),
+            color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(8.0),
             border: Border.all(
-              color: Theme.of(context).brightness == Brightness.dark
-                  ? Colors.grey[700]!
-                  : const Color(0xFF0175C2).withValues(alpha: 0.3),
+              color: Theme.of(context).primaryColor.withValues(alpha: 0.3),
               width: 1,
             ),
           ),
           child: CustomTextBodyStrong(
             category.titulo,
-            color: Theme.of(context).brightness == Brightness.dark
-                ? Colors.white
-                : const Color(0xFF0175C2),
+            color: Theme.of(context).primaryColor,
           ),
         ),
 
@@ -241,7 +235,7 @@ class _TelaAjudaState extends State<TelaAjuda> {
                       size: 20,
                       color: Theme.of(context).brightness == Brightness.dark
                           ? Colors.white70
-                          : const Color(0xFF0175C2),
+                          : Theme.of(context).primaryColor,
                     ),
                     const SizedBox(width: 8),
                     Expanded(
