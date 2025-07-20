@@ -1,3 +1,4 @@
+import 'package:fastmov/screen/ajuda/tela_ajuda.dart';
 import 'package:flutter/material.dart';
 import 'package:heroicons/heroicons.dart';
 
@@ -56,7 +57,14 @@ class CustomDrawer extends StatelessWidget {
               DrawerItem(icon: HeroIcons.banknotes, title: 'Pagamentos', onTap: () => Navigator.of(context).pushNamed('/telaPagamentos')),
               const Divider(),
               DrawerItem(icon: HeroIcons.arrowLeftStartOnRectangle, title: 'Sair do App', onTap: () {}),
-              DrawerItem(icon: HeroIcons.questionMarkCircle, title: 'Ajuda', onTap: () {}),
+              DrawerItem(
+                icon: HeroIcons.questionMarkCircle,
+                title: 'Ajuda',
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const TelaAjuda()),
+                ),
+              ),
               DrawerItem(icon: HeroIcons.documentText, title: 'Termos e Aceites', onTap: () {}),
             ],
           ),
