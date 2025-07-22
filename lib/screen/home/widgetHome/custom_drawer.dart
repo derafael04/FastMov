@@ -65,6 +65,7 @@ class CustomDrawer extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const TelaAjuda()),
                 ),
               ),
+              DrawerItem(icon: HeroIcons.exclamationCircle, title: 'Sobre a FastMov', onTap: () => Navigator.of(context).pushNamed('/about')),
               DrawerItem(icon: HeroIcons.documentText, title: 'Termos e Aceites', onTap: () {}),
             ],
           ),

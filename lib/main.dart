@@ -31,6 +31,7 @@ import 'screen/perfil/pagamentos/tela_historico_pagamentos.dart';
 import 'screen/perfil/pagamentos/tela_pagamentos.dart';
 import 'screen/perfil/tela_alterar_senha.dart';
 import 'screen/perfil/tela_perfil.dart';
+import 'screen/sobre/tela_sobre_fastmov.dart';
 
 
 void main() async {
@@ -77,6 +78,7 @@ class MyApp extends StatelessWidget {
           // Rotas de funcionalidades
           Routes.chat: (context) => const ChatScreen(),
           Routes.help: (context) => const TelaAjuda(),
+          Routes.about: (context) => const TelaSobreFastMov(),
           Routes.favorites: (context) => const TelaFavoritos(),
           Routes.gamification: (context) => const TelaGameficacao(),
           Routes.refer: (context) => const TelaIndique(),

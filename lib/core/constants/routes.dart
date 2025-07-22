@@ -22,6 +22,7 @@ class Routes {
   // Rotas de funcionalidades
   static const String chat = '/chat';
   static const String help = '/help';
+  static const String about = '/about';
   static const String favorites = '/favorites';
   static const String gamification = '/gamification';
   static const String refer = '/refer';
